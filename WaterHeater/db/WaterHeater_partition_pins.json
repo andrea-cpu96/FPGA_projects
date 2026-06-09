@@ -1,0 +1,41 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "led_ready",
+					"strict" : false
+				},
+				{
+					"name" : "led_err",
+					"strict" : false
+				},
+				{
+					"name" : "heater",
+					"strict" : false
+				},
+				{
+					"name" : "sw",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "temp_in",
+					"strict" : false
+				},
+				{
+					"name" : "water_lev",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

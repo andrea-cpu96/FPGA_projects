@@ -1,0 +1,1187 @@
+Timing Analyzer report for ShiftRegisterLED
+Sun Nov 23 11:04:24 2025
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. SDC File List
+  5. Clocks
+  6. Slow 1200mV 85C Model Fmax Summary
+  7. Timing Closure Recommendations
+  8. Slow 1200mV 85C Model Setup Summary
+  9. Slow 1200mV 85C Model Hold Summary
+ 10. Slow 1200mV 85C Model Recovery Summary
+ 11. Slow 1200mV 85C Model Removal Summary
+ 12. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 13. Slow 1200mV 85C Model Setup: 'InputOscillator'
+ 14. Slow 1200mV 85C Model Hold: 'InputOscillator'
+ 15. Slow 1200mV 85C Model Metastability Summary
+ 16. Slow 1200mV 0C Model Fmax Summary
+ 17. Slow 1200mV 0C Model Setup Summary
+ 18. Slow 1200mV 0C Model Hold Summary
+ 19. Slow 1200mV 0C Model Recovery Summary
+ 20. Slow 1200mV 0C Model Removal Summary
+ 21. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 22. Slow 1200mV 0C Model Setup: 'InputOscillator'
+ 23. Slow 1200mV 0C Model Hold: 'InputOscillator'
+ 24. Slow 1200mV 0C Model Metastability Summary
+ 25. Fast 1200mV 0C Model Setup Summary
+ 26. Fast 1200mV 0C Model Hold Summary
+ 27. Fast 1200mV 0C Model Recovery Summary
+ 28. Fast 1200mV 0C Model Removal Summary
+ 29. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 30. Fast 1200mV 0C Model Setup: 'InputOscillator'
+ 31. Fast 1200mV 0C Model Hold: 'InputOscillator'
+ 32. Fast 1200mV 0C Model Metastability Summary
+ 33. Multicorner Timing Analysis Summary
+ 34. Board Trace Model Assignments
+ 35. Input Transition Times
+ 36. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 37. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 38. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 39. Setup Transfers
+ 40. Hold Transfers
+ 41. Report TCCS
+ 42. Report RSKM
+ 43. Unconstrained Paths Summary
+ 44. Clock Status Summary
+ 45. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; ShiftRegisterLED                                    ;
+; Device Family         ; Cyclone IV E                                        ;
+; Device Name           ; EP4CE6E22C8                                         ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Combined                                            ;
+; Rise/Fall Delays      ; Enabled                                             ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.02        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ;   0.4%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------+
+; SDC File List                                             ;
++-----------------------+--------+--------------------------+
+; SDC File Path         ; Status ; Read at                  ;
++-----------------------+--------+--------------------------+
+; TimingConstraints.sdc ; OK     ; Sun Nov 23 11:04:23 2025 ;
++-----------------------+--------+--------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                               ;
++-----------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name      ; Type ; Period ; Frequency ; Rise  ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++-----------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; InputOscillator ; Base ; 20.000 ; 50.0 MHz  ; 0.000 ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++-----------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++-------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                    ;
++------------+-----------------+-----------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name      ; Note ;
++------------+-----------------+-----------------+------+
+; 165.32 MHz ; 165.32 MHz      ; InputOscillator ;      ;
++------------+-----------------+-----------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++------------------------------------------+
+; Slow 1200mV 85C Model Setup Summary      ;
++-----------------+--------+---------------+
+; Clock           ; Slack  ; End Point TNS ;
++-----------------+--------+---------------+
+; InputOscillator ; 13.951 ; 0.000         ;
++-----------------+--------+---------------+
+
+
++-----------------------------------------+
+; Slow 1200mV 85C Model Hold Summary      ;
++-----------------+-------+---------------+
+; Clock           ; Slack ; End Point TNS ;
++-----------------+-------+---------------+
+; InputOscillator ; 0.454 ; 0.000         ;
++-----------------+-------+---------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++-----------------+-------+-------------------------+
+; Clock           ; Slack ; End Point TNS           ;
++-----------------+-------+-------------------------+
+; InputOscillator ; 9.742 ; 0.000                   ;
++-----------------+-------+-------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'InputOscillator'                                                                                                        ;
++--------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+; Slack  ; From Node                      ; To Node                        ; Launch Clock    ; Latch Clock     ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+; 13.951 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.990      ;
+; 13.951 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.990      ;
+; 13.951 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.990      ;
+; 13.951 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.990      ;
+; 13.951 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.990      ;
+; 13.951 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.990      ;
+; 13.951 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.990      ;
+; 13.951 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.990      ;
+; 13.951 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.990      ;
+; 13.951 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.990      ;
+; 13.951 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.990      ;
+; 13.952 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.989      ;
+; 13.952 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.989      ;
+; 13.952 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.989      ;
+; 13.952 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.989      ;
+; 13.952 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.989      ;
+; 13.952 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.989      ;
+; 13.952 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.989      ;
+; 13.952 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.989      ;
+; 13.952 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.989      ;
+; 13.952 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.989      ;
+; 13.952 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.989      ;
+; 14.155 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.785      ;
+; 14.155 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.785      ;
+; 14.155 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.785      ;
+; 14.155 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.785      ;
+; 14.155 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.785      ;
+; 14.155 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.785      ;
+; 14.155 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.785      ;
+; 14.155 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.785      ;
+; 14.155 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.785      ;
+; 14.155 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.785      ;
+; 14.155 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.785      ;
+; 14.187 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.754      ;
+; 14.187 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.754      ;
+; 14.187 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.754      ;
+; 14.187 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.754      ;
+; 14.187 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.754      ;
+; 14.187 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.754      ;
+; 14.187 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.754      ;
+; 14.187 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.754      ;
+; 14.187 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.754      ;
+; 14.187 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.754      ;
+; 14.187 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.754      ;
+; 14.307 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.634      ;
+; 14.307 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.634      ;
+; 14.307 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.634      ;
+; 14.307 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.634      ;
+; 14.307 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.634      ;
+; 14.307 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.634      ;
+; 14.307 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.634      ;
+; 14.307 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.634      ;
+; 14.307 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.634      ;
+; 14.307 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.634      ;
+; 14.307 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.634      ;
+; 14.317 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.624      ;
+; 14.317 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.624      ;
+; 14.317 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.624      ;
+; 14.317 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.624      ;
+; 14.317 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.624      ;
+; 14.317 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.624      ;
+; 14.317 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.624      ;
+; 14.317 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.624      ;
+; 14.317 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.624      ;
+; 14.317 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.624      ;
+; 14.317 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.624      ;
+; 14.324 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.617      ;
+; 14.324 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.617      ;
+; 14.324 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.617      ;
+; 14.324 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.617      ;
+; 14.324 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.617      ;
+; 14.324 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.617      ;
+; 14.324 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.617      ;
+; 14.324 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.617      ;
+; 14.324 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.617      ;
+; 14.324 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.617      ;
+; 14.324 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.617      ;
+; 14.380 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.561      ;
+; 14.380 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.561      ;
+; 14.380 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.561      ;
+; 14.380 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.561      ;
+; 14.380 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.561      ;
+; 14.380 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.561      ;
+; 14.380 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.561      ;
+; 14.380 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.561      ;
+; 14.380 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.561      ;
+; 14.380 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.561      ;
+; 14.380 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.080     ; 5.561      ;
+; 14.485 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.455      ;
+; 14.485 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.455      ;
+; 14.485 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.455      ;
+; 14.485 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.455      ;
+; 14.485 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.455      ;
+; 14.485 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.455      ;
+; 14.485 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.455      ;
+; 14.485 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.455      ;
+; 14.485 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.455      ;
+; 14.485 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.455      ;
+; 14.485 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.081     ; 5.455      ;
+; 14.516 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 20.000       ; -0.079     ; 5.426      ;
++--------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'InputOscillator'                                                                                                        ;
++-------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+; Slack ; From Node                      ; To Node                        ; Launch Clock    ; Latch Clock     ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+; 0.454 ; deb_btn:u_debounce|btn_out     ; deb_btn:u_debounce|btn_out     ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 0.746      ;
+; 0.509 ; deb_btn:u_debounce|btn_out     ; ButtonPressed                  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 0.801      ;
+; 0.513 ; deb_btn:u_debounce|btn_out     ; delay_sw                       ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 0.805      ;
+; 0.514 ; ShiftReg[4]                    ; ShiftReg[1]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 0.806      ;
+; 0.518 ; deb_btn:u_debounce|counter[21] ; deb_btn:u_debounce|counter[21] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 0.810      ;
+; 0.527 ; ShiftReg[3]                    ; ShiftReg[4]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 0.819      ;
+; 0.653 ; ShiftReg[1]                    ; ShiftReg[2]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 0.945      ;
+; 0.725 ; ShiftReg[2]                    ; ShiftReg[3]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.017      ;
+; 0.753 ; deb_btn:u_debounce|counter[9]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.045      ;
+; 0.760 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.052      ;
+; 0.760 ; deb_btn:u_debounce|counter[10] ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.052      ;
+; 0.761 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.053      ;
+; 0.763 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.055      ;
+; 0.763 ; deb_btn:u_debounce|counter[17] ; deb_btn:u_debounce|counter[17] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.055      ;
+; 0.764 ; deb_btn:u_debounce|counter[0]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.056      ;
+; 0.764 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.056      ;
+; 0.765 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[12] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.057      ;
+; 0.765 ; deb_btn:u_debounce|counter[16] ; deb_btn:u_debounce|counter[16] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.057      ;
+; 0.766 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.058      ;
+; 0.766 ; deb_btn:u_debounce|counter[4]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.058      ;
+; 0.769 ; delay_sw                       ; ButtonPressed                  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.061      ;
+; 0.772 ; deb_btn:u_debounce|counter[14] ; deb_btn:u_debounce|counter[14] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.064      ;
+; 0.773 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.065      ;
+; 0.776 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[12] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.068      ;
+; 0.784 ; deb_btn:u_debounce|counter[20] ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.076      ;
+; 0.953 ; deb_btn:u_debounce|counter[18] ; deb_btn:u_debounce|counter[18] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.245      ;
+; 0.954 ; deb_btn:u_debounce|btn_aux     ; deb_btn:u_debounce|btn_sync    ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.246      ;
+; 0.956 ; deb_btn:u_debounce|counter[19] ; deb_btn:u_debounce|counter[19] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.248      ;
+; 0.967 ; deb_btn:u_debounce|counter[15] ; deb_btn:u_debounce|counter[15] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.259      ;
+; 0.968 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.260      ;
+; 0.969 ; deb_btn:u_debounce|counter[13] ; deb_btn:u_debounce|counter[13] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.261      ;
+; 1.007 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[11] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.299      ;
+; 1.071 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[21] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.363      ;
+; 1.071 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[19] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.363      ;
+; 1.074 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[17] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.366      ;
+; 1.075 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[18] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.367      ;
+; 1.075 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[15] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.367      ;
+; 1.077 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[16] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.369      ;
+; 1.077 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[13] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.369      ;
+; 1.078 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[14] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.370      ;
+; 1.079 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[11] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.371      ;
+; 1.107 ; deb_btn:u_debounce|counter[9]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.399      ;
+; 1.108 ; deb_btn:u_debounce|counter[0]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.400      ;
+; 1.114 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.406      ;
+; 1.117 ; deb_btn:u_debounce|counter[0]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.409      ;
+; 1.117 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.409      ;
+; 1.118 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.410      ;
+; 1.118 ; deb_btn:u_debounce|counter[17] ; deb_btn:u_debounce|counter[18] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.410      ;
+; 1.120 ; deb_btn:u_debounce|counter[10] ; deb_btn:u_debounce|counter[11] ; InputOscillator ; InputOscillator ; 0.000        ; 0.081      ; 1.413      ;
+; 1.122 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.414      ;
+; 1.126 ; deb_btn:u_debounce|counter[16] ; deb_btn:u_debounce|counter[17] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.418      ;
+; 1.126 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[13] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.418      ;
+; 1.127 ; deb_btn:u_debounce|counter[4]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.419      ;
+; 1.127 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.419      ;
+; 1.129 ; deb_btn:u_debounce|counter[10] ; deb_btn:u_debounce|counter[12] ; InputOscillator ; InputOscillator ; 0.000        ; 0.081      ; 1.422      ;
+; 1.131 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.423      ;
+; 1.133 ; deb_btn:u_debounce|counter[14] ; deb_btn:u_debounce|counter[15] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.425      ;
+; 1.135 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[14] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.427      ;
+; 1.135 ; deb_btn:u_debounce|counter[16] ; deb_btn:u_debounce|counter[18] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.427      ;
+; 1.136 ; deb_btn:u_debounce|counter[4]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.428      ;
+; 1.136 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.428      ;
+; 1.142 ; deb_btn:u_debounce|counter[14] ; deb_btn:u_debounce|counter[16] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.434      ;
+; 1.145 ; deb_btn:u_debounce|counter[20] ; deb_btn:u_debounce|counter[21] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.437      ;
+; 1.168 ; ButtonPressed                  ; ShiftReg[1]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.460      ;
+; 1.168 ; ButtonPressed                  ; ShiftReg[4]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.460      ;
+; 1.168 ; ButtonPressed                  ; ShiftReg[3]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.460      ;
+; 1.168 ; ButtonPressed                  ; ShiftReg[2]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.460      ;
+; 1.217 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.509      ;
+; 1.237 ; deb_btn:u_debounce|counter[9]  ; deb_btn:u_debounce|counter[11] ; InputOscillator ; InputOscillator ; 0.000        ; 0.081      ; 1.530      ;
+; 1.245 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.537      ;
+; 1.246 ; deb_btn:u_debounce|counter[9]  ; deb_btn:u_debounce|counter[12] ; InputOscillator ; InputOscillator ; 0.000        ; 0.081      ; 1.539      ;
+; 1.248 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.540      ;
+; 1.248 ; deb_btn:u_debounce|counter[0]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.540      ;
+; 1.249 ; deb_btn:u_debounce|counter[17] ; deb_btn:u_debounce|counter[19] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.541      ;
+; 1.249 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.541      ;
+; 1.254 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.546      ;
+; 1.257 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.549      ;
+; 1.257 ; deb_btn:u_debounce|counter[0]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.549      ;
+; 1.258 ; deb_btn:u_debounce|counter[17] ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.550      ;
+; 1.258 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.550      ;
+; 1.260 ; deb_btn:u_debounce|counter[10] ; deb_btn:u_debounce|counter[13] ; InputOscillator ; InputOscillator ; 0.000        ; 0.081      ; 1.553      ;
+; 1.261 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[11] ; InputOscillator ; InputOscillator ; 0.000        ; 0.081      ; 1.554      ;
+; 1.266 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[15] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.558      ;
+; 1.266 ; deb_btn:u_debounce|counter[16] ; deb_btn:u_debounce|counter[19] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.558      ;
+; 1.267 ; deb_btn:u_debounce|counter[4]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.559      ;
+; 1.267 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.559      ;
+; 1.269 ; deb_btn:u_debounce|counter[10] ; deb_btn:u_debounce|counter[14] ; InputOscillator ; InputOscillator ; 0.000        ; 0.081      ; 1.562      ;
+; 1.270 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[12] ; InputOscillator ; InputOscillator ; 0.000        ; 0.081      ; 1.563      ;
+; 1.273 ; deb_btn:u_debounce|counter[14] ; deb_btn:u_debounce|counter[17] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.565      ;
+; 1.275 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[16] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.567      ;
+; 1.275 ; deb_btn:u_debounce|counter[16] ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.567      ;
+; 1.276 ; deb_btn:u_debounce|counter[4]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.568      ;
+; 1.276 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.568      ;
+; 1.282 ; deb_btn:u_debounce|counter[14] ; deb_btn:u_debounce|counter[18] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.574      ;
+; 1.297 ; deb_btn:u_debounce|counter[18] ; deb_btn:u_debounce|counter[19] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.589      ;
+; 1.307 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.599      ;
+; 1.311 ; deb_btn:u_debounce|counter[19] ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.603      ;
+; 1.322 ; deb_btn:u_debounce|counter[15] ; deb_btn:u_debounce|counter[16] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.614      ;
+; 1.323 ; deb_btn:u_debounce|counter[18] ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.615      ;
+; 1.324 ; deb_btn:u_debounce|counter[13] ; deb_btn:u_debounce|counter[14] ; InputOscillator ; InputOscillator ; 0.000        ; 0.080      ; 1.616      ;
++-------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+
+
+-----------------------------------------------
+; Slow 1200mV 85C Model Metastability Summary ;
+-----------------------------------------------
+The design MTBF is not calculated because there are no specified synchronizers in the design.
+Number of Synchronizer Chains Found: 1
+Shortest Synchronizer Chain: 2 Registers
+Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
+Worst Case Available Settling Time: 33.222 ns
+
+
+
+
++-------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                     ;
++------------+-----------------+-----------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name      ; Note ;
++------------+-----------------+-----------------+------+
+; 178.44 MHz ; 178.44 MHz      ; InputOscillator ;      ;
++------------+-----------------+-----------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------------+
+; Slow 1200mV 0C Model Setup Summary       ;
++-----------------+--------+---------------+
+; Clock           ; Slack  ; End Point TNS ;
++-----------------+--------+---------------+
+; InputOscillator ; 14.396 ; 0.000         ;
++-----------------+--------+---------------+
+
+
++-----------------------------------------+
+; Slow 1200mV 0C Model Hold Summary       ;
++-----------------+-------+---------------+
+; Clock           ; Slack ; End Point TNS ;
++-----------------+-------+---------------+
+; InputOscillator ; 0.402 ; 0.000         ;
++-----------------+-------+---------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++-----------------+-------+------------------------+
+; Clock           ; Slack ; End Point TNS          ;
++-----------------+-------+------------------------+
+; InputOscillator ; 9.752 ; 0.000                  ;
++-----------------+-------+------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'InputOscillator'                                                                                                         ;
++--------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+; Slack  ; From Node                      ; To Node                        ; Launch Clock    ; Latch Clock     ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+; 14.396 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.554      ;
+; 14.396 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.554      ;
+; 14.396 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.554      ;
+; 14.396 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.554      ;
+; 14.396 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.554      ;
+; 14.396 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.554      ;
+; 14.396 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.554      ;
+; 14.396 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.554      ;
+; 14.396 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.554      ;
+; 14.396 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.554      ;
+; 14.396 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.554      ;
+; 14.400 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.550      ;
+; 14.400 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.550      ;
+; 14.400 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.550      ;
+; 14.400 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.550      ;
+; 14.400 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.550      ;
+; 14.400 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.550      ;
+; 14.400 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.550      ;
+; 14.400 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.550      ;
+; 14.400 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.550      ;
+; 14.400 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.550      ;
+; 14.400 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.550      ;
+; 14.572 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.377      ;
+; 14.572 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.377      ;
+; 14.572 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.377      ;
+; 14.572 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.377      ;
+; 14.572 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.377      ;
+; 14.572 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.377      ;
+; 14.572 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.377      ;
+; 14.572 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.377      ;
+; 14.572 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.377      ;
+; 14.572 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.377      ;
+; 14.572 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.377      ;
+; 14.600 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.350      ;
+; 14.600 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.350      ;
+; 14.600 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.350      ;
+; 14.600 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.350      ;
+; 14.600 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.350      ;
+; 14.600 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.350      ;
+; 14.600 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.350      ;
+; 14.600 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.350      ;
+; 14.600 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.350      ;
+; 14.600 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.350      ;
+; 14.600 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.350      ;
+; 14.715 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.235      ;
+; 14.715 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.235      ;
+; 14.715 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.235      ;
+; 14.715 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.235      ;
+; 14.715 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.235      ;
+; 14.715 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.235      ;
+; 14.715 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.235      ;
+; 14.715 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.235      ;
+; 14.715 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.235      ;
+; 14.715 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.235      ;
+; 14.715 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.235      ;
+; 14.723 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.227      ;
+; 14.723 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.227      ;
+; 14.723 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.227      ;
+; 14.723 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.227      ;
+; 14.723 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.227      ;
+; 14.723 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.227      ;
+; 14.723 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.227      ;
+; 14.723 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.227      ;
+; 14.723 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.227      ;
+; 14.723 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.227      ;
+; 14.723 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.227      ;
+; 14.738 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.212      ;
+; 14.738 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.212      ;
+; 14.738 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.212      ;
+; 14.738 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.212      ;
+; 14.738 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.212      ;
+; 14.738 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.212      ;
+; 14.738 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.212      ;
+; 14.738 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.212      ;
+; 14.738 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.212      ;
+; 14.738 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.212      ;
+; 14.738 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.212      ;
+; 14.798 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.152      ;
+; 14.798 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.152      ;
+; 14.798 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.152      ;
+; 14.798 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.152      ;
+; 14.798 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.152      ;
+; 14.798 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.152      ;
+; 14.798 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.152      ;
+; 14.798 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.152      ;
+; 14.798 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.152      ;
+; 14.798 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.152      ;
+; 14.798 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.072     ; 5.152      ;
+; 14.875 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.074      ;
+; 14.875 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.074      ;
+; 14.875 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.074      ;
+; 14.875 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.074      ;
+; 14.875 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.074      ;
+; 14.875 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.074      ;
+; 14.875 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.074      ;
+; 14.875 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.074      ;
+; 14.875 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.074      ;
+; 14.875 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.074      ;
+; 14.875 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.073     ; 5.074      ;
+; 14.933 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 20.000       ; -0.071     ; 5.018      ;
++--------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'InputOscillator'                                                                                                         ;
++-------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+; Slack ; From Node                      ; To Node                        ; Launch Clock    ; Latch Clock     ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+; 0.402 ; deb_btn:u_debounce|btn_out     ; deb_btn:u_debounce|btn_out     ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.669      ;
+; 0.474 ; ShiftReg[4]                    ; ShiftReg[1]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.741      ;
+; 0.476 ; deb_btn:u_debounce|btn_out     ; ButtonPressed                  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.743      ;
+; 0.478 ; deb_btn:u_debounce|counter[21] ; deb_btn:u_debounce|counter[21] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.745      ;
+; 0.480 ; deb_btn:u_debounce|btn_out     ; delay_sw                       ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.747      ;
+; 0.492 ; ShiftReg[3]                    ; ShiftReg[4]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.759      ;
+; 0.603 ; ShiftReg[1]                    ; ShiftReg[2]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.870      ;
+; 0.667 ; ShiftReg[2]                    ; ShiftReg[3]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.934      ;
+; 0.699 ; deb_btn:u_debounce|counter[9]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.966      ;
+; 0.707 ; deb_btn:u_debounce|counter[10] ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.974      ;
+; 0.707 ; deb_btn:u_debounce|counter[17] ; deb_btn:u_debounce|counter[17] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.974      ;
+; 0.708 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.975      ;
+; 0.709 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.976      ;
+; 0.709 ; deb_btn:u_debounce|counter[16] ; deb_btn:u_debounce|counter[16] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.976      ;
+; 0.710 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.977      ;
+; 0.711 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.978      ;
+; 0.711 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[12] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.978      ;
+; 0.712 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.979      ;
+; 0.712 ; deb_btn:u_debounce|counter[4]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.979      ;
+; 0.714 ; deb_btn:u_debounce|counter[14] ; deb_btn:u_debounce|counter[14] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.981      ;
+; 0.717 ; deb_btn:u_debounce|counter[0]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.984      ;
+; 0.717 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.984      ;
+; 0.719 ; delay_sw                       ; ButtonPressed                  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.986      ;
+; 0.721 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[12] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.988      ;
+; 0.727 ; deb_btn:u_debounce|counter[20] ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 0.994      ;
+; 0.864 ; deb_btn:u_debounce|counter[18] ; deb_btn:u_debounce|counter[18] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.131      ;
+; 0.867 ; deb_btn:u_debounce|counter[19] ; deb_btn:u_debounce|counter[19] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.134      ;
+; 0.878 ; deb_btn:u_debounce|counter[15] ; deb_btn:u_debounce|counter[15] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.145      ;
+; 0.879 ; deb_btn:u_debounce|btn_aux     ; deb_btn:u_debounce|btn_sync    ; InputOscillator ; InputOscillator ; 0.000        ; 0.070      ; 1.144      ;
+; 0.880 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.147      ;
+; 0.881 ; deb_btn:u_debounce|counter[13] ; deb_btn:u_debounce|counter[13] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.148      ;
+; 0.895 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[11] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.162      ;
+; 0.990 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[19] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.257      ;
+; 0.994 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[17] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.261      ;
+; 0.996 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[21] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.263      ;
+; 0.996 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[15] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.263      ;
+; 0.998 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[13] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.265      ;
+; 1.000 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[18] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.267      ;
+; 1.000 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[11] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.267      ;
+; 1.002 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[16] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.269      ;
+; 1.004 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[14] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.271      ;
+; 1.015 ; deb_btn:u_debounce|counter[0]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.282      ;
+; 1.023 ; deb_btn:u_debounce|counter[9]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.290      ;
+; 1.025 ; deb_btn:u_debounce|counter[10] ; deb_btn:u_debounce|counter[11] ; InputOscillator ; InputOscillator ; 0.000        ; 0.073      ; 1.293      ;
+; 1.028 ; deb_btn:u_debounce|counter[16] ; deb_btn:u_debounce|counter[17] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.295      ;
+; 1.028 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[13] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.295      ;
+; 1.029 ; deb_btn:u_debounce|counter[17] ; deb_btn:u_debounce|counter[18] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.296      ;
+; 1.030 ; deb_btn:u_debounce|counter[4]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.297      ;
+; 1.030 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.297      ;
+; 1.030 ; deb_btn:u_debounce|counter[0]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.297      ;
+; 1.030 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.297      ;
+; 1.032 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.299      ;
+; 1.033 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.300      ;
+; 1.033 ; deb_btn:u_debounce|counter[14] ; deb_btn:u_debounce|counter[15] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.300      ;
+; 1.034 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.301      ;
+; 1.040 ; deb_btn:u_debounce|counter[10] ; deb_btn:u_debounce|counter[12] ; InputOscillator ; InputOscillator ; 0.000        ; 0.073      ; 1.308      ;
+; 1.043 ; deb_btn:u_debounce|counter[16] ; deb_btn:u_debounce|counter[18] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.310      ;
+; 1.045 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[14] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.312      ;
+; 1.045 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.312      ;
+; 1.046 ; deb_btn:u_debounce|counter[20] ; deb_btn:u_debounce|counter[21] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.313      ;
+; 1.046 ; deb_btn:u_debounce|counter[4]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.313      ;
+; 1.046 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.313      ;
+; 1.048 ; deb_btn:u_debounce|counter[14] ; deb_btn:u_debounce|counter[16] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.315      ;
+; 1.083 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.350      ;
+; 1.084 ; ButtonPressed                  ; ShiftReg[1]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.351      ;
+; 1.084 ; ButtonPressed                  ; ShiftReg[4]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.351      ;
+; 1.084 ; ButtonPressed                  ; ShiftReg[3]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.351      ;
+; 1.084 ; ButtonPressed                  ; ShiftReg[2]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.351      ;
+; 1.121 ; deb_btn:u_debounce|counter[9]  ; deb_btn:u_debounce|counter[11] ; InputOscillator ; InputOscillator ; 0.000        ; 0.073      ; 1.389      ;
+; 1.123 ; deb_btn:u_debounce|counter[17] ; deb_btn:u_debounce|counter[19] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.390      ;
+; 1.128 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.395      ;
+; 1.134 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.401      ;
+; 1.137 ; deb_btn:u_debounce|counter[0]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.404      ;
+; 1.137 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.404      ;
+; 1.144 ; deb_btn:u_debounce|counter[9]  ; deb_btn:u_debounce|counter[12] ; InputOscillator ; InputOscillator ; 0.000        ; 0.073      ; 1.412      ;
+; 1.147 ; deb_btn:u_debounce|counter[10] ; deb_btn:u_debounce|counter[13] ; InputOscillator ; InputOscillator ; 0.000        ; 0.073      ; 1.415      ;
+; 1.150 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[15] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.417      ;
+; 1.150 ; deb_btn:u_debounce|counter[16] ; deb_btn:u_debounce|counter[19] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.417      ;
+; 1.151 ; deb_btn:u_debounce|counter[17] ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.418      ;
+; 1.151 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[11] ; InputOscillator ; InputOscillator ; 0.000        ; 0.073      ; 1.419      ;
+; 1.152 ; deb_btn:u_debounce|counter[0]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.419      ;
+; 1.152 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.419      ;
+; 1.152 ; deb_btn:u_debounce|counter[4]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.419      ;
+; 1.154 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.421      ;
+; 1.155 ; deb_btn:u_debounce|counter[14] ; deb_btn:u_debounce|counter[17] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.422      ;
+; 1.155 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.422      ;
+; 1.156 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.423      ;
+; 1.161 ; deb_btn:u_debounce|counter[18] ; deb_btn:u_debounce|counter[19] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.428      ;
+; 1.162 ; deb_btn:u_debounce|counter[10] ; deb_btn:u_debounce|counter[14] ; InputOscillator ; InputOscillator ; 0.000        ; 0.073      ; 1.430      ;
+; 1.165 ; deb_btn:u_debounce|counter[16] ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.432      ;
+; 1.166 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[12] ; InputOscillator ; InputOscillator ; 0.000        ; 0.073      ; 1.434      ;
+; 1.167 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[16] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.434      ;
+; 1.168 ; deb_btn:u_debounce|counter[4]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.435      ;
+; 1.168 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.435      ;
+; 1.169 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.436      ;
+; 1.170 ; deb_btn:u_debounce|counter[14] ; deb_btn:u_debounce|counter[18] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.437      ;
+; 1.228 ; deb_btn:u_debounce|counter[19] ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.495      ;
+; 1.232 ; deb_btn:u_debounce|counter[13] ; deb_btn:u_debounce|counter[14] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.499      ;
+; 1.236 ; deb_btn:u_debounce|counter[15] ; deb_btn:u_debounce|counter[16] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.503      ;
+; 1.236 ; deb_btn:u_debounce|counter[18] ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.072      ; 1.503      ;
++-------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Slow 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+The design MTBF is not calculated because there are no specified synchronizers in the design.
+Number of Synchronizer Chains Found: 1
+Shortest Synchronizer Chain: 2 Registers
+Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
+Worst Case Available Settling Time: 33.690 ns
+
+
+
+
++------------------------------------------+
+; Fast 1200mV 0C Model Setup Summary       ;
++-----------------+--------+---------------+
+; Clock           ; Slack  ; End Point TNS ;
++-----------------+--------+---------------+
+; InputOscillator ; 17.436 ; 0.000         ;
++-----------------+--------+---------------+
+
+
++-----------------------------------------+
+; Fast 1200mV 0C Model Hold Summary       ;
++-----------------+-------+---------------+
+; Clock           ; Slack ; End Point TNS ;
++-----------------+-------+---------------+
+; InputOscillator ; 0.187 ; 0.000         ;
++-----------------+-------+---------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++-----------------+-------+------------------------+
+; Clock           ; Slack ; End Point TNS          ;
++-----------------+-------+------------------------+
+; InputOscillator ; 9.264 ; 0.000                  ;
++-----------------+-------+------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'InputOscillator'                                                                                                         ;
++--------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+; Slack  ; From Node                      ; To Node                        ; Launch Clock    ; Latch Clock     ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+; 17.436 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.535      ;
+; 17.436 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.535      ;
+; 17.436 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.535      ;
+; 17.436 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.535      ;
+; 17.436 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.535      ;
+; 17.436 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.535      ;
+; 17.436 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.535      ;
+; 17.436 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.535      ;
+; 17.436 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.535      ;
+; 17.436 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.535      ;
+; 17.436 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.535      ;
+; 17.437 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.534      ;
+; 17.437 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.534      ;
+; 17.437 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.534      ;
+; 17.437 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.534      ;
+; 17.437 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.534      ;
+; 17.437 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.534      ;
+; 17.437 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.534      ;
+; 17.437 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.534      ;
+; 17.437 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.534      ;
+; 17.437 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.534      ;
+; 17.437 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.534      ;
+; 17.510 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.460      ;
+; 17.510 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.460      ;
+; 17.510 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.460      ;
+; 17.510 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.460      ;
+; 17.510 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.460      ;
+; 17.510 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.460      ;
+; 17.510 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.460      ;
+; 17.510 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.460      ;
+; 17.510 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.460      ;
+; 17.510 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.460      ;
+; 17.510 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.460      ;
+; 17.536 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.435      ;
+; 17.536 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.435      ;
+; 17.536 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.435      ;
+; 17.536 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.435      ;
+; 17.536 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.435      ;
+; 17.536 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.435      ;
+; 17.536 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.435      ;
+; 17.536 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.435      ;
+; 17.536 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.435      ;
+; 17.536 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.435      ;
+; 17.536 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.435      ;
+; 17.592 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.379      ;
+; 17.592 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.379      ;
+; 17.592 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.379      ;
+; 17.592 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.379      ;
+; 17.592 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.379      ;
+; 17.592 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.379      ;
+; 17.592 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.379      ;
+; 17.592 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.379      ;
+; 17.592 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.379      ;
+; 17.592 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.379      ;
+; 17.592 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.379      ;
+; 17.614 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.356      ;
+; 17.614 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.356      ;
+; 17.614 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.356      ;
+; 17.614 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.356      ;
+; 17.614 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.356      ;
+; 17.614 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.356      ;
+; 17.614 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.356      ;
+; 17.614 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.356      ;
+; 17.614 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.356      ;
+; 17.614 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.356      ;
+; 17.614 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.356      ;
+; 17.640 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.331      ;
+; 17.640 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.331      ;
+; 17.640 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.331      ;
+; 17.640 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.331      ;
+; 17.640 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.331      ;
+; 17.640 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.331      ;
+; 17.640 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.331      ;
+; 17.640 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.331      ;
+; 17.640 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.331      ;
+; 17.640 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.331      ;
+; 17.640 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.331      ;
+; 17.646 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.325      ;
+; 17.646 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.325      ;
+; 17.646 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.325      ;
+; 17.646 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.325      ;
+; 17.646 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.325      ;
+; 17.646 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.325      ;
+; 17.646 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.325      ;
+; 17.646 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.325      ;
+; 17.646 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.325      ;
+; 17.646 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.325      ;
+; 17.646 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.325      ;
+; 17.657 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.314      ;
+; 17.657 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.314      ;
+; 17.657 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.314      ;
+; 17.657 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.314      ;
+; 17.657 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.314      ;
+; 17.657 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.314      ;
+; 17.657 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.314      ;
+; 17.657 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.314      ;
+; 17.657 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.314      ;
+; 17.657 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.314      ;
+; 17.657 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 20.000       ; -0.036     ; 2.314      ;
+; 17.681 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 20.000       ; -0.037     ; 2.289      ;
++--------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'InputOscillator'                                                                                                         ;
++-------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+; Slack ; From Node                      ; To Node                        ; Launch Clock    ; Latch Clock     ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+; 0.187 ; deb_btn:u_debounce|btn_out     ; deb_btn:u_debounce|btn_out     ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.307      ;
+; 0.197 ; deb_btn:u_debounce|btn_out     ; ButtonPressed                  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.317      ;
+; 0.200 ; deb_btn:u_debounce|btn_out     ; delay_sw                       ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.320      ;
+; 0.205 ; ShiftReg[3]                    ; ShiftReg[4]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.325      ;
+; 0.210 ; deb_btn:u_debounce|counter[21] ; deb_btn:u_debounce|counter[21] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.330      ;
+; 0.213 ; ShiftReg[4]                    ; ShiftReg[1]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.333      ;
+; 0.266 ; ShiftReg[1]                    ; ShiftReg[2]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.386      ;
+; 0.279 ; ShiftReg[2]                    ; ShiftReg[3]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.399      ;
+; 0.301 ; deb_btn:u_debounce|counter[9]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.421      ;
+; 0.305 ; deb_btn:u_debounce|counter[10] ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; deb_btn:u_debounce|counter[17] ; deb_btn:u_debounce|counter[17] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.425      ;
+; 0.306 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[12] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; deb_btn:u_debounce|counter[16] ; deb_btn:u_debounce|counter[16] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.426      ;
+; 0.307 ; deb_btn:u_debounce|counter[4]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.427      ;
+; 0.307 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.427      ;
+; 0.307 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.427      ;
+; 0.308 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.428      ;
+; 0.309 ; deb_btn:u_debounce|counter[0]  ; deb_btn:u_debounce|counter[0]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.429      ;
+; 0.309 ; delay_sw                       ; ButtonPressed                  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.429      ;
+; 0.310 ; deb_btn:u_debounce|counter[14] ; deb_btn:u_debounce|counter[14] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.430      ;
+; 0.312 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.432      ;
+; 0.315 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[12] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.435      ;
+; 0.316 ; deb_btn:u_debounce|counter[20] ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.436      ;
+; 0.353 ; deb_btn:u_debounce|btn_aux     ; deb_btn:u_debounce|btn_sync    ; InputOscillator ; InputOscillator ; 0.000        ; 0.035      ; 0.472      ;
+; 0.367 ; deb_btn:u_debounce|counter[18] ; deb_btn:u_debounce|counter[18] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.487      ;
+; 0.371 ; deb_btn:u_debounce|counter[19] ; deb_btn:u_debounce|counter[19] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.491      ;
+; 0.375 ; deb_btn:u_debounce|counter[13] ; deb_btn:u_debounce|counter[13] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.495      ;
+; 0.376 ; deb_btn:u_debounce|counter[15] ; deb_btn:u_debounce|counter[15] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.496      ;
+; 0.378 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.498      ;
+; 0.384 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[11] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.504      ;
+; 0.429 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[21] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.549      ;
+; 0.431 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[19] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.551      ;
+; 0.434 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[17] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.554      ;
+; 0.434 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[18] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.554      ;
+; 0.436 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[16] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.556      ;
+; 0.436 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[15] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.556      ;
+; 0.438 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[14] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.558      ;
+; 0.438 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[13] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.558      ;
+; 0.440 ; deb_btn:u_debounce|btn_sync    ; deb_btn:u_debounce|counter[11] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.560      ;
+; 0.450 ; deb_btn:u_debounce|counter[9]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.570      ;
+; 0.454 ; deb_btn:u_debounce|counter[17] ; deb_btn:u_debounce|counter[18] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.574      ;
+; 0.455 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.575      ;
+; 0.456 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.576      ;
+; 0.456 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.576      ;
+; 0.458 ; deb_btn:u_debounce|counter[0]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.578      ;
+; 0.461 ; deb_btn:u_debounce|counter[0]  ; deb_btn:u_debounce|counter[2]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.581      ;
+; 0.462 ; deb_btn:u_debounce|counter[10] ; deb_btn:u_debounce|counter[11] ; InputOscillator ; InputOscillator ; 0.000        ; 0.037      ; 0.583      ;
+; 0.464 ; deb_btn:u_debounce|counter[16] ; deb_btn:u_debounce|counter[17] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.584      ;
+; 0.464 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.584      ;
+; 0.464 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[13] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.584      ;
+; 0.465 ; deb_btn:u_debounce|counter[10] ; deb_btn:u_debounce|counter[12] ; InputOscillator ; InputOscillator ; 0.000        ; 0.037      ; 0.586      ;
+; 0.465 ; deb_btn:u_debounce|counter[4]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.585      ;
+; 0.466 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.586      ;
+; 0.467 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[14] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.587      ;
+; 0.467 ; deb_btn:u_debounce|counter[16] ; deb_btn:u_debounce|counter[18] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.587      ;
+; 0.467 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.587      ;
+; 0.468 ; deb_btn:u_debounce|counter[14] ; deb_btn:u_debounce|counter[15] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.588      ;
+; 0.468 ; deb_btn:u_debounce|counter[4]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.588      ;
+; 0.469 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.589      ;
+; 0.471 ; deb_btn:u_debounce|counter[14] ; deb_btn:u_debounce|counter[16] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.591      ;
+; 0.474 ; deb_btn:u_debounce|counter[20] ; deb_btn:u_debounce|counter[21] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.594      ;
+; 0.479 ; deb_btn:u_debounce|counter[1]  ; deb_btn:u_debounce|counter[1]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.599      ;
+; 0.482 ; ButtonPressed                  ; ShiftReg[1]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.602      ;
+; 0.482 ; ButtonPressed                  ; ShiftReg[4]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.602      ;
+; 0.482 ; ButtonPressed                  ; ShiftReg[3]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.602      ;
+; 0.482 ; ButtonPressed                  ; ShiftReg[2]                    ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.602      ;
+; 0.512 ; deb_btn:u_debounce|counter[9]  ; deb_btn:u_debounce|counter[11] ; InputOscillator ; InputOscillator ; 0.000        ; 0.037      ; 0.633      ;
+; 0.515 ; deb_btn:u_debounce|counter[9]  ; deb_btn:u_debounce|counter[12] ; InputOscillator ; InputOscillator ; 0.000        ; 0.037      ; 0.636      ;
+; 0.517 ; deb_btn:u_debounce|counter[17] ; deb_btn:u_debounce|counter[19] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.637      ;
+; 0.518 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.638      ;
+; 0.519 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.639      ;
+; 0.519 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[9]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.639      ;
+; 0.520 ; deb_btn:u_debounce|counter[19] ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.640      ;
+; 0.520 ; deb_btn:u_debounce|counter[17] ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.640      ;
+; 0.521 ; deb_btn:u_debounce|counter[3]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.641      ;
+; 0.522 ; deb_btn:u_debounce|counter[5]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.642      ;
+; 0.522 ; deb_btn:u_debounce|counter[7]  ; deb_btn:u_debounce|counter[10] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.642      ;
+; 0.524 ; deb_btn:u_debounce|counter[0]  ; deb_btn:u_debounce|counter[3]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.644      ;
+; 0.524 ; deb_btn:u_debounce|counter[13] ; deb_btn:u_debounce|counter[14] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.644      ;
+; 0.525 ; deb_btn:u_debounce|counter[15] ; deb_btn:u_debounce|counter[16] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.645      ;
+; 0.525 ; deb_btn:u_debounce|counter[18] ; deb_btn:u_debounce|counter[19] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.645      ;
+; 0.527 ; deb_btn:u_debounce|counter[0]  ; deb_btn:u_debounce|counter[4]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.647      ;
+; 0.528 ; deb_btn:u_debounce|counter[10] ; deb_btn:u_debounce|counter[13] ; InputOscillator ; InputOscillator ; 0.000        ; 0.037      ; 0.649      ;
+; 0.528 ; deb_btn:u_debounce|counter[18] ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.648      ;
+; 0.530 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[15] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.650      ;
+; 0.530 ; deb_btn:u_debounce|counter[16] ; deb_btn:u_debounce|counter[19] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.650      ;
+; 0.530 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[5]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.650      ;
+; 0.531 ; deb_btn:u_debounce|counter[10] ; deb_btn:u_debounce|counter[14] ; InputOscillator ; InputOscillator ; 0.000        ; 0.037      ; 0.652      ;
+; 0.531 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[11] ; InputOscillator ; InputOscillator ; 0.000        ; 0.037      ; 0.652      ;
+; 0.531 ; deb_btn:u_debounce|counter[4]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.651      ;
+; 0.533 ; deb_btn:u_debounce|counter[11] ; deb_btn:u_debounce|counter[12] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.653      ;
+; 0.533 ; deb_btn:u_debounce|counter[12] ; deb_btn:u_debounce|counter[16] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.653      ;
+; 0.533 ; deb_btn:u_debounce|counter[16] ; deb_btn:u_debounce|counter[20] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.653      ;
+; 0.533 ; deb_btn:u_debounce|counter[2]  ; deb_btn:u_debounce|counter[6]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.653      ;
+; 0.534 ; deb_btn:u_debounce|counter[14] ; deb_btn:u_debounce|counter[17] ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.654      ;
+; 0.534 ; deb_btn:u_debounce|counter[8]  ; deb_btn:u_debounce|counter[12] ; InputOscillator ; InputOscillator ; 0.000        ; 0.037      ; 0.655      ;
+; 0.534 ; deb_btn:u_debounce|counter[4]  ; deb_btn:u_debounce|counter[8]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.654      ;
+; 0.536 ; deb_btn:u_debounce|counter[6]  ; deb_btn:u_debounce|counter[7]  ; InputOscillator ; InputOscillator ; 0.000        ; 0.036      ; 0.656      ;
++-------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Fast 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+The design MTBF is not calculated because there are no specified synchronizers in the design.
+Number of Synchronizer Chains Found: 1
+Shortest Synchronizer Chain: 2 Registers
+Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
+Worst Case Available Settling Time: 37.042 ns
+
+
+
+
++------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                          ;
++------------------+--------+-------+----------+---------+---------------------+
+; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+--------+-------+----------+---------+---------------------+
+; Worst-case Slack ; 13.951 ; 0.187 ; N/A      ; N/A     ; 9.264               ;
+;  InputOscillator ; 13.951 ; 0.187 ; N/A      ; N/A     ; 9.264               ;
+; Design-wide TNS  ; 0.0    ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
+;  InputOscillator ; 0.000  ; 0.000 ; N/A      ; N/A     ; 0.000               ;
++------------------+--------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; led[4]        ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; led[3]        ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; led[2]        ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; led[1]        ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; clk                     ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; rst                     ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; sw                      ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; ~ALTERA_DATA0~          ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; led[4]        ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 6.38e-09 V                   ; 3.12 V              ; -0.0818 V           ; 0.205 V                              ; 0.244 V                              ; 8.86e-10 s                  ; 6.56e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 6.38e-09 V                  ; 3.12 V             ; -0.0818 V          ; 0.205 V                             ; 0.244 V                             ; 8.86e-10 s                 ; 6.56e-10 s                 ; No                        ; No                        ;
+; led[3]        ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 6.38e-09 V                   ; 3.12 V              ; -0.0818 V           ; 0.205 V                              ; 0.244 V                              ; 8.86e-10 s                  ; 6.56e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 6.38e-09 V                  ; 3.12 V             ; -0.0818 V          ; 0.205 V                             ; 0.244 V                             ; 8.86e-10 s                 ; 6.56e-10 s                 ; No                        ; No                        ;
+; led[2]        ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 6.38e-09 V                   ; 3.12 V              ; -0.0818 V           ; 0.205 V                              ; 0.244 V                              ; 8.86e-10 s                  ; 6.56e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 6.38e-09 V                  ; 3.12 V             ; -0.0818 V          ; 0.205 V                             ; 0.244 V                             ; 8.86e-10 s                 ; 6.56e-10 s                 ; No                        ; No                        ;
+; led[1]        ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 6.38e-09 V                   ; 3.12 V              ; -0.0818 V           ; 0.205 V                              ; 0.244 V                              ; 8.86e-10 s                  ; 6.56e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 6.38e-09 V                  ; 3.12 V             ; -0.0818 V          ; 0.205 V                             ; 0.244 V                             ; 8.86e-10 s                 ; 6.56e-10 s                 ; No                        ; No                        ;
+; ~ALTERA_DCLK~ ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.51e-09 V                   ; 3.18 V              ; -0.157 V            ; 0.147 V                              ; 0.259 V                              ; 2.81e-10 s                  ; 2.53e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.51e-09 V                  ; 3.18 V             ; -0.157 V           ; 0.147 V                             ; 0.259 V                             ; 2.81e-10 s                 ; 2.53e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.57e-09 V                   ; 2.37 V              ; -0.00683 V          ; 0.171 V                              ; 0.018 V                              ; 4.97e-10 s                  ; 6.66e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.57e-09 V                  ; 2.37 V             ; -0.00683 V         ; 0.171 V                             ; 0.018 V                             ; 4.97e-10 s                 ; 6.66e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; led[4]        ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.04e-07 V                   ; 3.11 V              ; -0.0469 V           ; 0.191 V                              ; 0.215 V                              ; 1.08e-09 s                  ; 8.62e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 5.04e-07 V                  ; 3.11 V             ; -0.0469 V          ; 0.191 V                             ; 0.215 V                             ; 1.08e-09 s                 ; 8.62e-10 s                 ; Yes                       ; No                        ;
+; led[3]        ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.04e-07 V                   ; 3.11 V              ; -0.0469 V           ; 0.191 V                              ; 0.215 V                              ; 1.08e-09 s                  ; 8.62e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 5.04e-07 V                  ; 3.11 V             ; -0.0469 V          ; 0.191 V                             ; 0.215 V                             ; 1.08e-09 s                 ; 8.62e-10 s                 ; Yes                       ; No                        ;
+; led[2]        ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.04e-07 V                   ; 3.11 V              ; -0.0469 V           ; 0.191 V                              ; 0.215 V                              ; 1.08e-09 s                  ; 8.62e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 5.04e-07 V                  ; 3.11 V             ; -0.0469 V          ; 0.191 V                             ; 0.215 V                             ; 1.08e-09 s                 ; 8.62e-10 s                 ; Yes                       ; No                        ;
+; led[1]        ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.04e-07 V                   ; 3.11 V              ; -0.0469 V           ; 0.191 V                              ; 0.215 V                              ; 1.08e-09 s                  ; 8.62e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 5.04e-07 V                  ; 3.11 V             ; -0.0469 V          ; 0.191 V                             ; 0.215 V                             ; 1.08e-09 s                 ; 8.62e-10 s                 ; Yes                       ; No                        ;
+; ~ALTERA_DCLK~ ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.6e-07 V                    ; 3.13 V              ; -0.103 V            ; 0.164 V                              ; 0.134 V                              ; 3.14e-10 s                  ; 4.05e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 2.6e-07 V                   ; 3.13 V             ; -0.103 V           ; 0.164 V                             ; 0.134 V                             ; 3.14e-10 s                 ; 4.05e-10 s                 ; Yes                       ; No                        ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.54e-07 V                   ; 2.34 V              ; -0.00774 V          ; 0.109 V                              ; 0.026 V                              ; 6.58e-10 s                  ; 8.24e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.54e-07 V                  ; 2.34 V             ; -0.00774 V         ; 0.109 V                             ; 0.026 V                             ; 6.58e-10 s                 ; 8.24e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; led[4]        ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.25e-07 V                   ; 3.57 V              ; -0.0855 V           ; 0.315 V                              ; 0.175 V                              ; 6.79e-10 s                  ; 6.15e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 1.25e-07 V                  ; 3.57 V             ; -0.0855 V          ; 0.315 V                             ; 0.175 V                             ; 6.79e-10 s                 ; 6.15e-10 s                 ; No                        ; No                        ;
+; led[3]        ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.25e-07 V                   ; 3.57 V              ; -0.0855 V           ; 0.315 V                              ; 0.175 V                              ; 6.79e-10 s                  ; 6.15e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 1.25e-07 V                  ; 3.57 V             ; -0.0855 V          ; 0.315 V                             ; 0.175 V                             ; 6.79e-10 s                 ; 6.15e-10 s                 ; No                        ; No                        ;
+; led[2]        ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.25e-07 V                   ; 3.57 V              ; -0.0855 V           ; 0.315 V                              ; 0.175 V                              ; 6.79e-10 s                  ; 6.15e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 1.25e-07 V                  ; 3.57 V             ; -0.0855 V          ; 0.315 V                             ; 0.175 V                             ; 6.79e-10 s                 ; 6.15e-10 s                 ; No                        ; No                        ;
+; led[1]        ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.25e-07 V                   ; 3.57 V              ; -0.0855 V           ; 0.315 V                              ; 0.175 V                              ; 6.79e-10 s                  ; 6.15e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 1.25e-07 V                  ; 3.57 V             ; -0.0855 V          ; 0.315 V                             ; 0.175 V                             ; 6.79e-10 s                 ; 6.15e-10 s                 ; No                        ; No                        ;
+; ~ALTERA_DCLK~ ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 6.54e-08 V                   ; 3.66 V              ; -0.26 V             ; 0.41 V                               ; 0.32 V                               ; 1.57e-10 s                  ; 2.15e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 6.54e-08 V                  ; 3.66 V             ; -0.26 V            ; 0.41 V                              ; 0.32 V                              ; 1.57e-10 s                 ; 2.15e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.54e-08 V                   ; 2.7 V               ; -0.00943 V          ; 0.276 V                              ; 0.035 V                              ; 3.19e-10 s                  ; 4.99e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.54e-08 V                  ; 2.7 V              ; -0.00943 V         ; 0.276 V                             ; 0.035 V                             ; 3.19e-10 s                 ; 4.99e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------------------+
+; Setup Transfers                                                               ;
++-----------------+-----------------+----------+----------+----------+----------+
+; From Clock      ; To Clock        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-----------------+-----------------+----------+----------+----------+----------+
+; InputOscillator ; InputOscillator ; 1509     ; 0        ; 0        ; 0        ;
++-----------------+-----------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------------------+
+; Hold Transfers                                                                ;
++-----------------+-----------------+----------+----------+----------+----------+
+; From Clock      ; To Clock        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-----------------+-----------------+----------+----------+----------+----------+
+; InputOscillator ; InputOscillator ; 1509     ; 0        ; 0        ; 0        ;
++-----------------+-----------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 0     ; 0    ;
+; Unconstrained Input Port Paths  ; 0     ; 0    ;
+; Unconstrained Output Ports      ; 0     ; 0    ;
+; Unconstrained Output Port Paths ; 0     ; 0    ;
++---------------------------------+-------+------+
+
+
++-----------------------------------------------+
+; Clock Status Summary                          ;
++--------+-----------------+------+-------------+
+; Target ; Clock           ; Type ; Status      ;
++--------+-----------------+------+-------------+
+; clk    ; InputOscillator ; Base ; Constrained ;
++--------+-----------------+------+-------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Sun Nov 23 11:04:22 2025
+Info: Command: quartus_sta ShiftRegisterLED -c ShiftRegisterLED
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (332104): Reading SDC File: 'TimingConstraints.sdc'
+Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning (332169): From InputOscillator (Rise) to InputOscillator (Rise) (setup and hold)
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Info (332146): Worst-case setup slack is 13.951
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    13.951               0.000 InputOscillator 
+Info (332146): Worst-case hold slack is 0.454
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.454               0.000 InputOscillator 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 9.742
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     9.742               0.000 InputOscillator 
+Info (332114): Report Metastability: Found 1 synchronizer chains.
+    Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
+    Info (332114): Number of Synchronizer Chains Found: 1
+    Info (332114): Shortest Synchronizer Chain: 2 Registers
+    Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
+    Info (332114): Worst Case Available Settling Time: 33.222 ns
+    Info (332114): 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning (332169): From InputOscillator (Rise) to InputOscillator (Rise) (setup and hold)
+Info (332146): Worst-case setup slack is 14.396
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    14.396               0.000 InputOscillator 
+Info (332146): Worst-case hold slack is 0.402
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.402               0.000 InputOscillator 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 9.752
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     9.752               0.000 InputOscillator 
+Info (332114): Report Metastability: Found 1 synchronizer chains.
+    Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
+    Info (332114): Number of Synchronizer Chains Found: 1
+    Info (332114): Shortest Synchronizer Chain: 2 Registers
+    Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
+    Info (332114): Worst Case Available Settling Time: 33.690 ns
+    Info (332114): 
+Info: Analyzing Fast 1200mV 0C Model
+Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning (332169): From InputOscillator (Rise) to InputOscillator (Rise) (setup and hold)
+Info (332146): Worst-case setup slack is 17.436
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    17.436               0.000 InputOscillator 
+Info (332146): Worst-case hold slack is 0.187
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.187               0.000 InputOscillator 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 9.264
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     9.264               0.000 InputOscillator 
+Info (332114): Report Metastability: Found 1 synchronizer chains.
+    Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
+    Info (332114): Number of Synchronizer Chains Found: 1
+    Info (332114): Shortest Synchronizer Chain: 2 Registers
+    Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
+    Info (332114): Worst Case Available Settling Time: 37.042 ns
+    Info (332114): 
+Info (332101): Design is fully constrained for setup requirements
+Info (332101): Design is fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 4782 megabytes
+    Info: Processing ended: Sun Nov 23 11:04:24 2025
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+

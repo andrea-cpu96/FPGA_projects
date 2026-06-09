@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Jun 07 11:02:57 2026
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : PWM_LED
+Top-level Entity Name : PWM_LED_ENTITY
+Family : Cyclone IV E
+Total logic elements : 40
+    Total combinational functions : 40
+    Dedicated logic registers : 27
+Total registers : 27
+Total pins : 2
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

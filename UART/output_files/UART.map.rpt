@@ -1,0 +1,532 @@
+Analysis & Synthesis report for UART
+Mon Dec 08 18:07:34 2025
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |TopLevelModule|UART_rx:UART_rx_inst|FSMVariable
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |TopLevelModule
+ 14. Parameter Settings for User Entity Instance: UART_tx:UART_tx_inst
+ 15. Parameter Settings for User Entity Instance: UART_tx:UART_tx_inst|Serializer:UART_SERIALIZER_INST
+ 16. Parameter Settings for User Entity Instance: UART_tx:UART_tx_inst|BaudClkGenerator:UART_BIT_TIMING_INST
+ 17. Parameter Settings for User Entity Instance: UART_rx:UART_rx_inst
+ 18. Parameter Settings for User Entity Instance: UART_rx:UART_rx_inst|Synchronizer:Synchronizer_inst
+ 19. Parameter Settings for User Entity Instance: UART_rx:UART_rx_inst|BaudClkGenerator:BaudClkGenerator_inst
+ 20. Parameter Settings for User Entity Instance: UART_rx:UART_rx_inst|ShiftRegister:ShiftRegister_inst
+ 21. Port Connectivity Checks: "UART_tx:UART_tx_inst|Serializer:UART_SERIALIZER_INST"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Dec 08 18:07:34 2025       ;
+; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name                      ; UART                                        ;
+; Top-level Entity Name              ; TopLevelModule                              ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 74                                          ;
+;     Total combinational functions  ; 65                                          ;
+;     Dedicated logic registers      ; 58                                          ;
+; Total registers                    ; 58                                          ;
+; Total pins                         ; 4                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE6E22C8        ;                    ;
+; Top-level entity name                                            ; TopLevelModule     ; UART               ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; VHDL Show LMF Mapping Messages                                   ; Off                ;                    ;
+; VHDL Version                                                     ; VHDL_2008          ; VHDL_1993          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                          ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                   ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------+---------+
+; src/ShiftRegister.vhd            ; yes             ; User VHDL File  ; D:/Andrea/Embedded/fpga_projects/UART/src/ShiftRegister.vhd    ;         ;
+; src/BaudClkGenerator.vhd         ; yes             ; User VHDL File  ; D:/Andrea/Embedded/fpga_projects/UART/src/BaudClkGenerator.vhd ;         ;
+; src/Serializer.vhd               ; yes             ; User VHDL File  ; D:/Andrea/Embedded/fpga_projects/UART/src/Serializer.vhd       ;         ;
+; src/UART_tx.vhd                  ; yes             ; User VHDL File  ; D:/Andrea/Embedded/fpga_projects/UART/src/UART_tx.vhd          ;         ;
+; src/Synchronizer.vhd             ; yes             ; User VHDL File  ; D:/Andrea/Embedded/fpga_projects/UART/src/Synchronizer.vhd     ;         ;
+; src/UART_rx.vhd                  ; yes             ; User VHDL File  ; D:/Andrea/Embedded/fpga_projects/UART/src/UART_rx.vhd          ;         ;
+; src/TopLevelModule.vhd           ; yes             ; User VHDL File  ; D:/Andrea/Embedded/fpga_projects/UART/src/TopLevelModule.vhd   ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 74        ;
+;                                             ;           ;
+; Total combinational functions               ; 65        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 21        ;
+;     -- 3 input functions                    ; 19        ;
+;     -- <=2 input functions                  ; 25        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 49        ;
+;     -- arithmetic mode                      ; 16        ;
+;                                             ;           ;
+; Total registers                             ; 58        ;
+;     -- Dedicated logic registers            ; 58        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 4         ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 58        ;
+; Total fan-out                               ; 407       ;
+; Average fan-out                             ; 3.11      ;
++---------------------------------------------+-----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                       ;
++------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------+------------------+--------------+
+; Compilation Hierarchy Node                     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                         ; Entity Name      ; Library Name ;
++------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------+------------------+--------------+
+; |TopLevelModule                                ; 65 (3)              ; 58 (2)                    ; 0           ; 0            ; 0       ; 0         ; 4    ; 0            ; |TopLevelModule                                                             ; TopLevelModule   ; work         ;
+;    |UART_rx:UART_rx_inst|                      ; 30 (6)              ; 32 (7)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TopLevelModule|UART_rx:UART_rx_inst                                        ; UART_rx          ; work         ;
+;       |BaudClkGenerator:BaudClkGenerator_inst| ; 22 (22)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TopLevelModule|UART_rx:UART_rx_inst|BaudClkGenerator:BaudClkGenerator_inst ; BaudClkGenerator ; work         ;
+;       |ShiftRegister:ShiftRegister_inst|       ; 1 (1)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TopLevelModule|UART_rx:UART_rx_inst|ShiftRegister:ShiftRegister_inst       ; ShiftRegister    ; work         ;
+;       |Synchronizer:Synchronizer_inst|         ; 1 (1)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TopLevelModule|UART_rx:UART_rx_inst|Synchronizer:Synchronizer_inst         ; Synchronizer     ; work         ;
+;    |UART_tx:UART_tx_inst|                      ; 32 (0)              ; 24 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TopLevelModule|UART_tx:UART_tx_inst                                        ; UART_tx          ; work         ;
+;       |BaudClkGenerator:UART_BIT_TIMING_INST|  ; 22 (22)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TopLevelModule|UART_tx:UART_tx_inst|BaudClkGenerator:UART_BIT_TIMING_INST  ; BaudClkGenerator ; work         ;
+;       |Serializer:UART_SERIALIZER_INST|        ; 10 (10)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TopLevelModule|UART_tx:UART_tx_inst|Serializer:UART_SERIALIZER_INST        ; Serializer       ; work         ;
++------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------+------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------+
+; State Machine - |TopLevelModule|UART_rx:UART_rx_inst|FSMVariable                                            ;
++--------------------------------+------------------------+--------------------------------+------------------+
+; Name                           ; FSMVariable.ASSERT_IRQ ; FSMVariable.COLLECT_RS232_DATA ; FSMVariable.IDLE ;
++--------------------------------+------------------------+--------------------------------+------------------+
+; FSMVariable.IDLE               ; 0                      ; 0                              ; 0                ;
+; FSMVariable.COLLECT_RS232_DATA ; 0                      ; 1                              ; 1                ;
+; FSMVariable.ASSERT_IRQ         ; 1                      ; 0                              ; 1                ;
++--------------------------------+------------------------+--------------------------------+------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                         ;
++-------------------------------------------------------------------+----------------------------------------+
+; Register name                                                     ; Reason for Removal                     ;
++-------------------------------------------------------------------+----------------------------------------+
+; UART_tx:UART_tx_inst|Serializer:UART_SERIALIZER_INST|shift_reg[9] ; Stuck at VCC due to stuck port data_in ;
+; Total Number of Removed Registers = 1                             ;                                        ;
++-------------------------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 58    ;
+; Number of registers using Synchronous Clear  ; 9     ;
+; Number of registers using Synchronous Load   ; 9     ;
+; Number of registers using Asynchronous Clear ; 58    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 16    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------+
+; Inverted Register Statistics                                                ;
++-------------------------------------------------------------------+---------+
+; Inverted Register                                                 ; Fan out ;
++-------------------------------------------------------------------+---------+
+; UART_tx:UART_tx_inst|Serializer:UART_SERIALIZER_INST|shift_reg[0] ; 2       ;
+; UART_tx:UART_tx_inst|Serializer:UART_SERIALIZER_INST|shift_reg[1] ; 1       ;
+; UART_tx:UART_tx_inst|Serializer:UART_SERIALIZER_INST|shift_reg[2] ; 1       ;
+; UART_tx:UART_tx_inst|BaudClkGenerator:UART_BIT_TIMING_INST|ready  ; 3       ;
+; UART_tx:UART_tx_inst|Serializer:UART_SERIALIZER_INST|shift_reg[3] ; 1       ;
+; UART_tx:UART_tx_inst|Serializer:UART_SERIALIZER_INST|shift_reg[4] ; 1       ;
+; UART_rx:UART_rx_inst|BaudClkGenerator:BaudClkGenerator_inst|ready ; 4       ;
+; UART_tx:UART_tx_inst|Serializer:UART_SERIALIZER_INST|shift_reg[5] ; 1       ;
+; UART_tx:UART_tx_inst|Serializer:UART_SERIALIZER_INST|shift_reg[6] ; 1       ;
+; UART_rx:UART_rx_inst|Synchronizer:Synchronizer_inst|signal_sync   ; 3       ;
+; UART_rx:UART_rx_inst|rs232_rx_sync_delay                          ; 1       ;
+; UART_tx:UART_tx_inst|Serializer:UART_SERIALIZER_INST|shift_reg[7] ; 1       ;
+; UART_rx:UART_rx_inst|Synchronizer:Synchronizer_inst|signal_async  ; 1       ;
+; UART_tx:UART_tx_inst|Serializer:UART_SERIALIZER_INST|shift_reg[8] ; 1       ;
+; Total number of inverted registers = 14                           ;         ;
++-------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------+
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |TopLevelModule|UART_tx:UART_tx_inst|BaudClkGenerator:UART_BIT_TIMING_INST|BitPeriodCounter[1]  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TopLevelModule|SMVariable                                                                      ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TopLevelModule|UART_rx:UART_rx_inst|BaudClkGenerator:BaudClkGenerator_inst|ClockLeft[1]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TopLevelModule|UART_tx:UART_tx_inst|BaudClkGenerator:UART_BIT_TIMING_INST|ClockLeft[3]         ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |TopLevelModule|UART_rx:UART_rx_inst|BaudClkGenerator:BaudClkGenerator_inst|BitPeriodCounter[2] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TopLevelModule|UART_tx:UART_tx_inst|Serializer:UART_SERIALIZER_INST|shift_reg[2]               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |TopLevelModule ;
++-----------------+----------+---------------------------------------------------+
+; Parameter Name  ; Value    ; Type                                              ;
++-----------------+----------+---------------------------------------------------+
+; RS232_DATA_BITS ; 8        ; Signed Integer                                    ;
+; BAUD_RATE       ; 115200   ; Signed Integer                                    ;
+; SYS_CLK_FREQ    ; 50000000 ; Signed Integer                                    ;
++-----------------+----------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_tx:UART_tx_inst ;
++-----------------+----------+--------------------------------------+
+; Parameter Name  ; Value    ; Type                                 ;
++-----------------+----------+--------------------------------------+
+; rs232_data_bits ; 8        ; Signed Integer                       ;
+; baud_rate       ; 115200   ; Signed Integer                       ;
+; sys_clk_freq    ; 50000000 ; Signed Integer                       ;
++-----------------+----------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_tx:UART_tx_inst|Serializer:UART_SERIALIZER_INST ;
++----------------+-------+--------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                     ;
++----------------+-------+--------------------------------------------------------------------------+
+; data_width     ; 10    ; Signed Integer                                                           ;
+; default_state  ; '1'   ; Enumerated                                                               ;
++----------------+-------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_tx:UART_tx_inst|BaudClkGenerator:UART_BIT_TIMING_INST ;
++----------------+----------+-----------------------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                                        ;
++----------------+----------+-----------------------------------------------------------------------------+
+; SYS_CLK_FREQ   ; 50000000 ; Signed Integer                                                              ;
+; BAUD_RATE      ; 115200   ; Signed Integer                                                              ;
+; NUMBER_OF_CLK  ; 10       ; Signed Integer                                                              ;
+; UART_RX        ; false    ; Enumerated                                                                  ;
++----------------+----------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_rx:UART_rx_inst ;
++----------------+----------+---------------------------------------+
+; Parameter Name ; Value    ; Type                                  ;
++----------------+----------+---------------------------------------+
+; data_width     ; 8        ; Signed Integer                        ;
+; sys_clk_freq   ; 50000000 ; Signed Integer                        ;
+; baud_rate      ; 115200   ; Signed Integer                        ;
++----------------+----------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_rx:UART_rx_inst|Synchronizer:Synchronizer_inst ;
++----------------+-------+-------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                    ;
++----------------+-------+-------------------------------------------------------------------------+
+; idle_state     ; '1'   ; Enumerated                                                              ;
++----------------+-------+-------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_rx:UART_rx_inst|BaudClkGenerator:BaudClkGenerator_inst ;
++----------------+----------+------------------------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                                         ;
++----------------+----------+------------------------------------------------------------------------------+
+; sys_clk_freq   ; 50000000 ; Signed Integer                                                               ;
+; baud_rate      ; 115200   ; Signed Integer                                                               ;
+; number_of_clk  ; 9        ; Signed Integer                                                               ;
+; uart_rx        ; true     ; Enumerated                                                                   ;
++----------------+----------+------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_rx:UART_rx_inst|ShiftRegister:ShiftRegister_inst ;
++-----------------+-------+--------------------------------------------------------------------------+
+; Parameter Name  ; Value ; Type                                                                     ;
++-----------------+-------+--------------------------------------------------------------------------+
+; chain_length    ; 8     ; Signed Integer                                                           ;
+; shift_direction ; 'R'   ; Enumerated                                                               ;
++-----------------+-------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Port Connectivity Checks: "UART_tx:UART_tx_inst|Serializer:UART_SERIALIZER_INST" ;
++--------+-------+----------+------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                              ;
++--------+-------+----------+------------------------------------------------------+
+; din[9] ; Input ; Info     ; Stuck at VCC                                         ;
+; din[0] ; Input ; Info     ; Stuck at GND                                         ;
++--------+-------+----------+------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 4                           ;
+; cycloneiii_ff         ; 58                          ;
+;     CLR               ; 24                          ;
+;     CLR SCLR          ; 9                           ;
+;     CLR SLD           ; 9                           ;
+;     ENA CLR           ; 16                          ;
+; cycloneiii_lcell_comb ; 66                          ;
+;     arith             ; 16                          ;
+;         2 data inputs ; 16                          ;
+;     normal            ; 50                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 19                          ;
+;         4 data inputs ; 21                          ;
+;                       ;                             ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 1.60                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Mon Dec 08 18:07:25 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off UART -c UART
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file src/shiftregister.vhd
+    Info (12022): Found design unit 1: ShiftRegister-rtl File: D:/Andrea/Embedded/fpga_projects/UART/src/ShiftRegister.vhd Line: 20
+    Info (12023): Found entity 1: ShiftRegister File: D:/Andrea/Embedded/fpga_projects/UART/src/ShiftRegister.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file src/baudclkgenerator.vhd
+    Info (12022): Found design unit 1: BaudClkGenerator-rtl File: D:/Andrea/Embedded/fpga_projects/UART/src/BaudClkGenerator.vhd Line: 20
+    Info (12023): Found entity 1: BaudClkGenerator File: D:/Andrea/Embedded/fpga_projects/UART/src/BaudClkGenerator.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file testbech/baudrateclk_tb.vhd
+    Info (12022): Found design unit 1: BaudClkGenerator_tb-rtl File: D:/Andrea/Embedded/fpga_projects/UART/testbech/BaudRateClk_tb.vhd Line: 7
+    Info (12023): Found entity 1: BaudClkGenerator_tb File: D:/Andrea/Embedded/fpga_projects/UART/testbech/BaudRateClk_tb.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file src/serializer.vhd
+    Info (12022): Found design unit 1: Serializer-rtl File: D:/Andrea/Embedded/fpga_projects/UART/src/Serializer.vhd Line: 21
+    Info (12023): Found entity 1: Serializer File: D:/Andrea/Embedded/fpga_projects/UART/src/Serializer.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file testbech/serializer_tb.vhd
+    Info (12022): Found design unit 1: Serializer_tb-rtl File: D:/Andrea/Embedded/fpga_projects/UART/testbech/Serializer_tb.vhd Line: 7
+    Info (12023): Found entity 1: Serializer_tb File: D:/Andrea/Embedded/fpga_projects/UART/testbech/Serializer_tb.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file src/uart_tx.vhd
+    Info (12022): Found design unit 1: UART_tx-rtl File: D:/Andrea/Embedded/fpga_projects/UART/src/UART_tx.vhd Line: 22
+    Info (12023): Found entity 1: UART_tx File: D:/Andrea/Embedded/fpga_projects/UART/src/UART_tx.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file testbech/uart_tx_tb.vhd
+    Info (12022): Found design unit 1: UART_tx_tb-rtl File: D:/Andrea/Embedded/fpga_projects/UART/testbech/UART_tx_tb.vhd Line: 13
+    Info (12023): Found entity 1: UART_tx_tb File: D:/Andrea/Embedded/fpga_projects/UART/testbech/UART_tx_tb.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file testbech/shiftregister_tb.vhd
+    Info (12022): Found design unit 1: ShiftRegister_tb-rtl File: D:/Andrea/Embedded/fpga_projects/UART/testbech/ShiftRegister_tb.vhd Line: 7
+    Info (12023): Found entity 1: ShiftRegister_tb File: D:/Andrea/Embedded/fpga_projects/UART/testbech/ShiftRegister_tb.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file src/synchronizer.vhd
+    Info (12022): Found design unit 1: Synchronizer-rtl File: D:/Andrea/Embedded/fpga_projects/UART/src/Synchronizer.vhd Line: 18
+    Info (12023): Found entity 1: Synchronizer File: D:/Andrea/Embedded/fpga_projects/UART/src/Synchronizer.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file testbech/synchronizer_tb.vhd
+    Info (12022): Found design unit 1: Synchronizer_tb-rtl File: D:/Andrea/Embedded/fpga_projects/UART/testbech/Synchronizer_tb.vhd Line: 7
+    Info (12023): Found entity 1: Synchronizer_tb File: D:/Andrea/Embedded/fpga_projects/UART/testbech/Synchronizer_tb.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file src/uart_rx.vhd
+    Info (12022): Found design unit 1: UART_rx-rtl File: D:/Andrea/Embedded/fpga_projects/UART/src/UART_rx.vhd Line: 22
+    Info (12023): Found entity 1: UART_rx File: D:/Andrea/Embedded/fpga_projects/UART/src/UART_rx.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file testbech/uart_rx_tb.vhd
+    Info (12022): Found design unit 1: UART_rx_tb-rtl File: D:/Andrea/Embedded/fpga_projects/UART/testbech/UART_rx_tb.vhd Line: 7
+    Info (12023): Found entity 1: UART_rx_tb File: D:/Andrea/Embedded/fpga_projects/UART/testbech/UART_rx_tb.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file src/toplevelmodule.vhd
+    Info (12022): Found design unit 1: TopLevelModule-rtl File: D:/Andrea/Embedded/fpga_projects/UART/src/TopLevelModule.vhd Line: 20
+    Info (12023): Found entity 1: TopLevelModule File: D:/Andrea/Embedded/fpga_projects/UART/src/TopLevelModule.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file testbech/toplevelmodule_tb.vhd
+    Info (12022): Found design unit 1: TopLevelModule_tb-rtl File: D:/Andrea/Embedded/fpga_projects/UART/testbech/TopLevelModule_tb.vhd Line: 13
+    Info (12023): Found entity 1: TopLevelModule_tb File: D:/Andrea/Embedded/fpga_projects/UART/testbech/TopLevelModule_tb.vhd Line: 6
+Info (12127): Elaborating entity "TopLevelModule" for the top level hierarchy
+Info (12128): Elaborating entity "UART_tx" for hierarchy "UART_tx:UART_tx_inst" File: D:/Andrea/Embedded/fpga_projects/UART/src/TopLevelModule.vhd Line: 62
+Info (12128): Elaborating entity "Serializer" for hierarchy "UART_tx:UART_tx_inst|Serializer:UART_SERIALIZER_INST" File: D:/Andrea/Embedded/fpga_projects/UART/src/UART_tx.vhd Line: 60
+Info (12128): Elaborating entity "BaudClkGenerator" for hierarchy "UART_tx:UART_tx_inst|BaudClkGenerator:UART_BIT_TIMING_INST" File: D:/Andrea/Embedded/fpga_projects/UART/src/UART_tx.vhd Line: 75
+Info (12128): Elaborating entity "UART_rx" for hierarchy "UART_rx:UART_rx_inst" File: D:/Andrea/Embedded/fpga_projects/UART/src/TopLevelModule.vhd Line: 78
+Info (12128): Elaborating entity "Synchronizer" for hierarchy "UART_rx:UART_rx_inst|Synchronizer:Synchronizer_inst" File: D:/Andrea/Embedded/fpga_projects/UART/src/UART_rx.vhd Line: 75
+Info (12128): Elaborating entity "BaudClkGenerator" for hierarchy "UART_rx:UART_rx_inst|BaudClkGenerator:BaudClkGenerator_inst" File: D:/Andrea/Embedded/fpga_projects/UART/src/UART_rx.vhd Line: 87
+Info (12128): Elaborating entity "ShiftRegister" for hierarchy "UART_rx:UART_rx_inst|ShiftRegister:ShiftRegister_inst" File: D:/Andrea/Embedded/fpga_projects/UART/src/UART_rx.vhd Line: 103
+Info (13000): Registers with preset signals will power-up high File: D:/Andrea/Embedded/fpga_projects/UART/src/Serializer.vhd Line: 27
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 78 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 1 output pins
+    Info (21061): Implemented 74 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4810 megabytes
+    Info: Processing ended: Mon Dec 08 18:07:34 2025
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:20
+
+

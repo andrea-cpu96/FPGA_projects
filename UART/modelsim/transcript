@@ -1,0 +1,29 @@
+# Compile of TopLevelModule_tb.vhd was successful with warnings.
+vsim work.toplevelmodule_tb
+# vsim work.toplevelmodule_tb 
+# Start time: 19:50:07 on Dec 07,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.toplevelmodule_tb(rtl)
+# Loading work.toplevelmodule(rtl)
+# Loading work.uart_tx(rtl)
+# Loading work.serializer(rtl)
+# Loading work.baudclkgenerator(rtl)
+# Loading work.uart_rx(rtl)
+# Loading work.synchronizer(rtl)
+# Loading work.shiftregister(rtl)
+add wave -position end  sim:/toplevelmodule_tb/UUT/rstn
+add wave -position end  sim:/toplevelmodule_tb/UUT/clk
+add wave -position end  sim:/toplevelmodule_tb/UUT/UART_rx_pin
+add wave -position end  sim:/toplevelmodule_tb/UUT/UART_tx_pin
+add wave -position end  sim:/toplevelmodule_tb/UUT/SMVariable
+add wave -position end  sim:/toplevelmodule_tb/UUT/TxStart
+add wave -position end  sim:/toplevelmodule_tb/UUT/TxReady
+add wave -position end  sim:/toplevelmodule_tb/UUT/IRQ_rx
+add wave -position end  sim:/toplevelmodule_tb/UUT/data_rx
+run 1ms
+run 100ms
+# End time: 20:24:39 on Dec 07,2025, Elapsed time: 0:34:32
+# Errors: 0, Warnings: 2

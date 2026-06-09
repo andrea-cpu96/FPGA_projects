@@ -1,0 +1,7 @@
+
+State Machine - |SevenSegmentDisplay|state
+Name state.DIGIT_4 state.DIGIT_3 state.DIGIT_2 state.DIGIT_1 
+state.DIGIT_1 0 0 0 0 
+state.DIGIT_2 0 0 1 1 
+state.DIGIT_3 0 1 0 1 
+state.DIGIT_4 1 0 0 1 

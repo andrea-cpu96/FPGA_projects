@@ -1,0 +1,24 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity WaterHeater is
+	port
+	(
+		rst			:		in std_logic;
+		clk			:		in std_logic;
+		sw				:		in std_logic;
+		temp_in		:		in	std_logic;
+		water_lev	:		in std_logic;	
+		led_ready	:		out std_logic;
+		led_err		:		out std_logic;
+		heater		:		out std_logic
+	);
+end entity;
+
+architecture rtl of WaterHeater is
+	type FSMStateDT is (IDLE, RUN, STOP); 
+	signal state	:	FSMStateDT;
+begin
+	
+
+end rtl;

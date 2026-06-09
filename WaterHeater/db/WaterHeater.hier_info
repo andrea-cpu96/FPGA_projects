@@ -1,0 +1,31 @@
+|WaterHeater
+rst => heater~reg0.ACLR
+rst => led_err~reg0.ACLR
+rst => led_ready~reg0.ACLR
+rst => state~6.DATAIN
+rst => water_lev_sync.ENA
+rst => temp_in_sync.ENA
+clk => water_lev_sync.CLK
+clk => temp_in_sync.CLK
+clk => heater~reg0.CLK
+clk => led_err~reg0.CLK
+clk => led_ready~reg0.CLK
+clk => state~4.DATAIN
+sw => state.OUTPUTSELECT
+sw => state.OUTPUTSELECT
+sw => state.OUTPUTSELECT
+sw => led_err.OUTPUTSELECT
+sw => led_ready.OUTPUTSELECT
+sw => state.OUTPUTSELECT
+sw => state.OUTPUTSELECT
+sw => state.OUTPUTSELECT
+sw => state.OUTPUTSELECT
+sw => state.OUTPUTSELECT
+sw => state.OUTPUTSELECT
+temp_in => temp_in_sync.DATAIN
+water_lev => water_lev_sync.DATAIN
+led_ready <= led_ready~reg0.DB_MAX_OUTPUT_PORT_TYPE
+led_err <= led_err~reg0.DB_MAX_OUTPUT_PORT_TYPE
+heater <= heater~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

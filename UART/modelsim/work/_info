@@ -1,0 +1,669 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/intelFPGA_lite/20.1
+Ebaudclkgenerator
+Z0 w1764879160
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 39
+Z3 dD:/Andrea/Embedded/fpga_projects/UART/modelsim
+Z4 8D:/Andrea/Embedded/fpga_projects/UART/src/BaudClkGenerator.vhd
+Z5 FD:/Andrea/Embedded/fpga_projects/UART/src/BaudClkGenerator.vhd
+l0
+L4 1
+VKm=FV]ZCIOzIaaHaF<e>A2
+!s100 Wz5T;;0@77Co7Ld;9F7U@3
+Z6 OV;C;2020.1;71
+32
+Z7 !s110 1764879228
+!i10b 1
+Z8 !s108 1764879228.000000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Andrea/Embedded/fpga_projects/UART/src/BaudClkGenerator.vhd|
+Z10 !s107 D:/Andrea/Embedded/fpga_projects/UART/src/BaudClkGenerator.vhd|
+!i113 1
+Z11 o-work work -2002 -explicit
+Z12 tExplicit 1 CvgOpt 0
+Artl
+R1
+R2
+DEx4 work 16 baudclkgenerator 0 22 Km=FV]ZCIOzIaaHaF<e>A2
+!i122 39
+l26
+L20 65
+Vz10`PlEPeAcfS7Bn]aoNd1
+!s100 Y64<M[M2;4i=fK[h5`Ub_0
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Ebaudclkgenerator_tb
+Z13 w1764189641
+R1
+R2
+!i122 16
+R3
+Z14 8D:/Andrea/Embedded/fpga_projects/UART/testbech/BaudRateClk_tb.vhd
+Z15 FD:/Andrea/Embedded/fpga_projects/UART/testbech/BaudRateClk_tb.vhd
+l0
+L4 1
+VkB8U?3XMFQ4S0LdfgUb:o2
+!s100 R5AU<9H41bW@bGNJ87dnF0
+R6
+32
+Z16 !s110 1764449256
+!i10b 1
+Z17 !s108 1764449256.000000
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Andrea/Embedded/fpga_projects/UART/testbech/BaudRateClk_tb.vhd|
+Z19 !s107 D:/Andrea/Embedded/fpga_projects/UART/testbech/BaudRateClk_tb.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 19 baudclkgenerator_tb 0 22 kB8U?3XMFQ4S0LdfgUb:o2
+!i122 16
+l31
+Z20 L7 61
+V2m9z;[cI8K<M9>X_>SB@<1
+!s100 3G:<0CoRgdj4coT2_=Z==0
+R6
+32
+R16
+!i10b 1
+R17
+R18
+R19
+!i113 1
+R11
+R12
+Eboudclkgenerator
+Z21 w1764102122
+R1
+R2
+!i122 0
+R3
+R4
+R5
+l0
+L4 1
+V5>a@5M<9:?XHgKFScWI>d2
+!s100 i1lkEMQ1OXM5=K9Dg30i32
+R6
+32
+Z22 !s110 1764185743
+!i10b 1
+Z23 !s108 1764185742.000000
+R9
+R10
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 16 boudclkgenerator 0 22 5>a@5M<9:?XHgKFScWI>d2
+!i122 0
+l26
+L21 56
+V7QH=IC@FmCE`z;EN`AgEe3
+!s100 EeeiF:]H==]cQi_LUbnF`3
+R6
+32
+R22
+!i10b 1
+R23
+R9
+R10
+!i113 1
+R11
+R12
+Eboudclkgenerator_tb
+Z24 w1764187668
+R1
+R2
+!i122 5
+R3
+R14
+R15
+l0
+L4 1
+V_Z<:bZDgGZgVUCamN71o[0
+!s100 1jYPMz;n8Z1akKNRaUCGR3
+R6
+32
+Z25 !s110 1764189534
+!i10b 1
+Z26 !s108 1764189534.000000
+R18
+R19
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 19 boudclkgenerator_tb 0 22 _Z<:bZDgGZgVUCamN71o[0
+!i122 5
+l31
+R20
+V^c6VoM6c[MCOkCjQ62zfi2
+!s100 J@[7nil]omE@45:o^BBTR2
+R6
+32
+R25
+!i10b 1
+R26
+R18
+R19
+!i113 1
+R11
+R12
+Eserializer
+Z27 w1764273320
+R1
+R2
+!i122 17
+R3
+Z28 8D:/Andrea/Embedded/fpga_projects/UART/src/Serializer.vhd
+Z29 FD:/Andrea/Embedded/fpga_projects/UART/src/Serializer.vhd
+l0
+L4 1
+VfP:QN5ZzRRVV^]fMl6UI_3
+!s100 dmaaVHR_<3SfN:@mOKaD=3
+R6
+32
+R16
+!i10b 1
+R17
+Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Andrea/Embedded/fpga_projects/UART/src/Serializer.vhd|
+Z31 !s107 D:/Andrea/Embedded/fpga_projects/UART/src/Serializer.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 10 serializer 0 22 fP:QN5ZzRRVV^]fMl6UI_3
+!i122 17
+l23
+L21 17
+V@ib7[@azT62kH1>W[aJfV0
+!s100 PicP__>nY2MNn2ndN?]z=1
+R6
+32
+R16
+!i10b 1
+R17
+R30
+R31
+!i113 1
+R11
+R12
+Eserializer_tb
+Z32 w1764277200
+R1
+R2
+!i122 18
+R3
+Z33 8D:/Andrea/Embedded/fpga_projects/UART/testbech/Serializer_tb.vhd
+Z34 FD:/Andrea/Embedded/fpga_projects/UART/testbech/Serializer_tb.vhd
+l0
+L4 1
+V<SImh76M7<OG^Jf7XM6HR1
+!s100 f8bj?7eU]1[o43]QfPO]A1
+R6
+32
+R16
+!i10b 1
+R17
+Z35 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Andrea/Embedded/fpga_projects/UART/testbech/Serializer_tb.vhd|
+Z36 !s107 D:/Andrea/Embedded/fpga_projects/UART/testbech/Serializer_tb.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 13 serializer_tb 0 22 <SImh76M7<OG^Jf7XM6HR1
+!i122 18
+l32
+L7 67
+Vm;k^[M4:=>b@VbQVcOC3m2
+!s100 coPHOd<>kngNeMD[obed60
+R6
+32
+R16
+!i10b 1
+R17
+R35
+R36
+!i113 1
+R11
+R12
+Eshiftregister
+Z37 w1764446183
+R1
+R2
+!i122 21
+R3
+Z38 8D:/Andrea/Embedded/fpga_projects/UART/src/ShiftRegister.vhd
+Z39 FD:/Andrea/Embedded/fpga_projects/UART/src/ShiftRegister.vhd
+l0
+L4 1
+Vgefjldi]mCdnUN;9@7a=32
+!s100 4YmWoj=1c8JifXF?E_`1f2
+R6
+32
+R16
+!i10b 1
+R17
+Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Andrea/Embedded/fpga_projects/UART/src/ShiftRegister.vhd|
+Z41 !s107 D:/Andrea/Embedded/fpga_projects/UART/src/ShiftRegister.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 13 shiftregister 0 22 gefjldi]mCdnUN;9@7a=32
+!i122 21
+l22
+L20 29
+VPiLUM0_0DVFDC>ZoKKaEP2
+!s100 CiS1<gL>jA^=GKZJI34Qa3
+R6
+32
+R16
+!i10b 1
+R17
+R40
+R41
+!i113 1
+R11
+R12
+Eshiftregister_tb
+Z42 w1764449130
+R1
+R2
+!i122 23
+R3
+Z43 8D:/Andrea/Embedded/fpga_projects/UART/testbech/ShiftRegister_tb.vhd
+Z44 FD:/Andrea/Embedded/fpga_projects/UART/testbech/ShiftRegister_tb.vhd
+l0
+L4 1
+VQUVDi@zF;SJi48KR5D4X92
+!s100 D^AX<KMajGh`NPIfghlmj3
+R6
+32
+Z45 !s110 1764449300
+!i10b 1
+Z46 !s108 1764449300.000000
+Z47 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Andrea/Embedded/fpga_projects/UART/testbech/ShiftRegister_tb.vhd|
+Z48 !s107 D:/Andrea/Embedded/fpga_projects/UART/testbech/ShiftRegister_tb.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 16 shiftregister_tb 0 22 QUVDi@zF;SJi48KR5D4X92
+!i122 23
+l28
+L7 114
+VfnckzKn_laJ2a9:;Qj=:f2
+!s100 lz=B91JfSMWMKNz[^lMDU3
+R6
+32
+R45
+!i10b 1
+R46
+R47
+R48
+!i113 1
+R11
+R12
+Esynchronizer
+Z49 w1764528856
+R1
+R2
+!i122 24
+R3
+Z50 8D:/Andrea/Embedded/fpga_projects/UART/src/Synchronizer.vhd
+Z51 FD:/Andrea/Embedded/fpga_projects/UART/src/Synchronizer.vhd
+l0
+L4 1
+V`mT0Hj;]96h7>`PA?M`E20
+!s100 f8MAfmUE8IeccOR?nDS;M1
+R6
+32
+Z52 !s110 1764528940
+!i10b 1
+Z53 !s108 1764528939.000000
+Z54 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Andrea/Embedded/fpga_projects/UART/src/Synchronizer.vhd|
+Z55 !s107 D:/Andrea/Embedded/fpga_projects/UART/src/Synchronizer.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 12 synchronizer 0 22 `mT0Hj;]96h7>`PA?M`E20
+!i122 24
+l21
+L18 16
+V;eIzQZGOO>Ij@jWb^zzaR1
+!s100 0_9TE90>e2^L>j5zHW1K=2
+R6
+32
+R52
+!i10b 1
+R53
+R54
+R55
+!i113 1
+R11
+R12
+Esynchronizer_tb
+Z56 w1764530262
+R1
+R2
+!i122 26
+R3
+Z57 8D:/Andrea/Embedded/fpga_projects/UART/testbech/Synchronizer_tb.vhd
+Z58 FD:/Andrea/Embedded/fpga_projects/UART/testbech/Synchronizer_tb.vhd
+l0
+L4 1
+VTY>n[Yj@Cz=bJMOkaPcQ;1
+!s100 :GThI5F=oV?`SVzPY4klg1
+R6
+32
+Z59 !s110 1764530306
+!i10b 1
+Z60 !s108 1764530306.000000
+Z61 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Andrea/Embedded/fpga_projects/UART/testbech/Synchronizer_tb.vhd|
+Z62 !s107 D:/Andrea/Embedded/fpga_projects/UART/testbech/Synchronizer_tb.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 15 synchronizer_tb 0 22 TY>n[Yj@Cz=bJMOkaPcQ;1
+!i122 26
+l25
+L7 46
+V^60RG4bG?A7cIiFcdIN9Z3
+!s100 A[9MJVcebFJhaT5aS3gdX3
+R6
+32
+R59
+!i10b 1
+R60
+R61
+R62
+!i113 1
+R11
+R12
+Etoplevelmodule
+Z63 w1765043844
+R1
+R2
+!i122 40
+R3
+Z64 8D:/Andrea/Embedded/fpga_projects/UART/src/TopLevelModule.vhd
+Z65 FD:/Andrea/Embedded/fpga_projects/UART/src/TopLevelModule.vhd
+l0
+L4 1
+Vd0@6UJUTfHE2c;>oTkS^k3
+!s100 j2HY71P3WBjSFlM29gBRh1
+R6
+32
+Z66 !s110 1765043929
+!i10b 1
+Z67 !s108 1765043929.000000
+Z68 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Andrea/Embedded/fpga_projects/UART/src/TopLevelModule.vhd|
+Z69 !s107 D:/Andrea/Embedded/fpga_projects/UART/src/TopLevelModule.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 14 toplevelmodule 0 22 d0@6UJUTfHE2c;>oTkS^k3
+!i122 40
+l61
+L20 95
+V89K@Rah3o`O:;ceQ_;^HE3
+!s100 2VlizADI49YUDZkffX54G0
+R6
+32
+R66
+!i10b 1
+R67
+R68
+R69
+!i113 1
+R11
+R12
+Etoplevelmodule_tb
+Z70 w1765133343
+Z71 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R1
+R2
+!i122 48
+R3
+Z72 8D:/Andrea/Embedded/fpga_projects/UART/testbech/TopLevelModule_tb.vhd
+Z73 FD:/Andrea/Embedded/fpga_projects/UART/testbech/TopLevelModule_tb.vhd
+l0
+L6 1
+V7gFN`TB??=T3Xlm`VDIGP2
+!s100 fW_J[948j0JfXP`[<_?`K2
+R6
+32
+Z74 !s110 1765133394
+!i10b 1
+Z75 !s108 1765133394.000000
+Z76 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Andrea/Embedded/fpga_projects/UART/testbech/TopLevelModule_tb.vhd|
+Z77 !s107 D:/Andrea/Embedded/fpga_projects/UART/testbech/TopLevelModule_tb.vhd|
+!i113 1
+R11
+R12
+Artl
+R71
+R1
+R2
+Z78 DEx4 work 17 toplevelmodule_tb 0 22 7gFN`TB??=T3Xlm`VDIGP2
+!i122 48
+l33
+L13 68
+V_R_2H7Cbzn9j0Zh7?n]IU2
+!s100 W;d0zJUamM76R>N8GKiic0
+R6
+32
+R74
+!i10b 1
+R75
+R76
+R77
+!i113 1
+R11
+R12
+Euart_rx
+Z79 w1764878589
+R1
+R2
+!i122 37
+R3
+Z80 8D:/Andrea/Embedded/fpga_projects/UART/src/UART_rx.vhd
+Z81 FD:/Andrea/Embedded/fpga_projects/UART/src/UART_rx.vhd
+l0
+L4 1
+VK>IPYM4e^;Z2C:P83n8ZT1
+!s100 nP8Q^hhk6SId7CK>M?^m33
+R6
+32
+Z82 !s110 1764878767
+!i10b 1
+Z83 !s108 1764878767.000000
+Z84 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Andrea/Embedded/fpga_projects/UART/src/UART_rx.vhd|
+Z85 !s107 D:/Andrea/Embedded/fpga_projects/UART/src/UART_rx.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 7 uart_rx 0 22 K>IPYM4e^;Z2C:P83n8ZT1
+!i122 37
+l74
+L22 143
+VzL[SPb_X<BCmm5_D^kFKP1
+!s100 nnC8DXIQ?[QHSkd7Qd;hL0
+R6
+32
+R82
+!i10b 1
+R83
+R84
+R85
+!i113 1
+R11
+R12
+Euart_rx_tb
+Z86 w1764878690
+R1
+R2
+!i122 38
+R3
+Z87 8D:/Andrea/Embedded/fpga_projects/UART/testbech/UART_rx_tb.vhd
+Z88 FD:/Andrea/Embedded/fpga_projects/UART/testbech/UART_rx_tb.vhd
+l0
+L4 1
+VVj2@XN]HW=]_oF1bIW4783
+!s100 zS6]d6:4j[=B?H>K61cO`1
+R6
+32
+Z89 !s110 1764878790
+!i10b 1
+Z90 !s108 1764878790.000000
+Z91 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Andrea/Embedded/fpga_projects/UART/testbech/UART_rx_tb.vhd|
+Z92 !s107 D:/Andrea/Embedded/fpga_projects/UART/testbech/UART_rx_tb.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 10 uart_rx_tb 0 22 Vj2@XN]HW=]_oF1bIW4783
+!i122 38
+l32
+L7 80
+VLOYcFa[^Xni2ViRgoT9P81
+!s100 Ig4PIQLJoV8]mZ<JZlG>F0
+R6
+32
+R89
+!i10b 1
+R90
+R91
+R92
+!i113 1
+R11
+R12
+Euart_tx
+Z93 w1764703282
+R1
+R2
+!i122 27
+R3
+Z94 8D:/Andrea/Embedded/fpga_projects/UART/src/UART_tx.vhd
+Z95 FD:/Andrea/Embedded/fpga_projects/UART/src/UART_tx.vhd
+l0
+L4 1
+V3]WLL?d[I:56:gUM@jf;R0
+!s100 >Q;z3oR>Wk1W900`_=;bP3
+R6
+32
+Z96 !s110 1764874207
+!i10b 1
+Z97 !s108 1764874207.000000
+Z98 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Andrea/Embedded/fpga_projects/UART/src/UART_tx.vhd|
+Z99 !s107 D:/Andrea/Embedded/fpga_projects/UART/src/UART_tx.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 7 uart_tx 0 22 3]WLL?d[I:56:gUM@jf;R0
+!i122 27
+l58
+L22 70
+VM8Pii;`3`cYZlaLZScTF[0
+!s100 YlXV]Sma^bZJci3zO@da41
+R6
+32
+R96
+!i10b 1
+R97
+R98
+R99
+!i113 1
+R11
+R12
+Euart_tx_tb
+Z100 w1764359537
+R1
+R2
+!i122 20
+R3
+Z101 8D:/Andrea/Embedded/fpga_projects/UART/testbech/UART_tx_tb.vhd
+Z102 FD:/Andrea/Embedded/fpga_projects/UART/testbech/UART_tx_tb.vhd
+l0
+L4 1
+V4@zbR:Ta?LHUEK_^:g?j@2
+!s100 TO>4JS`PUhHe9NkIGB`FX0
+R6
+32
+R16
+!i10b 1
+R17
+Z103 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Andrea/Embedded/fpga_projects/UART/testbech/UART_tx_tb.vhd|
+Z104 !s107 D:/Andrea/Embedded/fpga_projects/UART/testbech/UART_tx_tb.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 10 uart_tx_tb 0 22 4@zbR:Ta?LHUEK_^:g?j@2
+!i122 20
+l37
+L13 58
+Vl=;W=lbSHQJb7e^>CV]9U3
+!s100 YBEjfea?_cBJ::emj@Ane0
+R6
+32
+R16
+!i10b 1
+R17
+R103
+R104
+!i113 1
+R11
+R12

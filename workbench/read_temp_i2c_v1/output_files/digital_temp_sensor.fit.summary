@@ -1,0 +1,16 @@
+Fitter Status : Successful - Mon Jun 08 20:14:35 2026
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : digital_temp_sensor
+Top-level Entity Name : digital_temp_sensor
+Family : Cyclone IV E
+Device : EP4CE10E22C8
+Timing Models : Final
+Total logic elements : 302 / 10,320 ( 3 % )
+    Total combinational functions : 293 / 10,320 ( 3 % )
+    Dedicated logic registers : 183 / 10,320 ( 2 % )
+Total registers : 183
+Total pins : 15 / 92 ( 16 % )
+Total virtual pins : 0
+Total memory bits : 0 / 423,936 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 46 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

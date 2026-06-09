@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Nov 16 13:47:31 2025
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : StateMachineProject
+Top-level Entity Name : StateMachineProject
+Family : Cyclone IV E
+Total logic elements : 9
+    Total combinational functions : 7
+    Dedicated logic registers : 6
+Total registers : 6
+Total pins : 8
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1

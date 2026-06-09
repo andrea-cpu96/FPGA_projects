@@ -1,0 +1,24 @@
+
+State Machine - |read_temp|state
+Name state.WAIT_STATE state.STOP_BIT state.DATA_READ state.ADDR_WRITE state.START_BIT state.IDLE 
+state.IDLE 0 0 0 0 0 0 
+state.START_BIT 0 0 0 0 1 1 
+state.ADDR_WRITE 0 0 0 1 0 1 
+state.DATA_READ 0 0 1 0 0 1 
+state.STOP_BIT 0 1 0 0 0 1 
+state.WAIT_STATE 1 0 0 0 0 1 
+
+State Machine - |read_temp|i2c_controller:i2c_core|state
+Name state.RESTART1 state.STOP3 state.STOP2 state.STOP1 state.READ_WAITING state.READING_ACK state.READING_DATA state.WRITE_WAITING state.WRITING_ACK state.WRITING_DATA state.START2 state.START1 
+state.START1 0 0 0 0 0 0 0 0 0 0 0 0 
+state.START2 0 0 0 0 0 0 0 0 0 0 1 1 
+state.WRITING_DATA 0 0 0 0 0 0 0 0 0 1 0 1 
+state.WRITING_ACK 0 0 0 0 0 0 0 0 1 0 0 1 
+state.WRITE_WAITING 0 0 0 0 0 0 0 1 0 0 0 1 
+state.READING_DATA 0 0 0 0 0 0 1 0 0 0 0 1 
+state.READING_ACK 0 0 0 0 0 1 0 0 0 0 0 1 
+state.READ_WAITING 0 0 0 0 1 0 0 0 0 0 0 1 
+state.STOP1 0 0 0 1 0 0 0 0 0 0 0 1 
+state.STOP2 0 0 1 0 0 0 0 0 0 0 0 1 
+state.STOP3 0 1 0 0 0 0 0 0 0 0 0 1 
+state.RESTART1 1 0 0 0 0 0 0 0 0 0 0 1 

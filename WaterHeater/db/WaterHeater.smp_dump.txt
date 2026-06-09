@@ -1,0 +1,6 @@
+
+State Machine - |WaterHeater|state
+Name state.STOP state.RUN state.IDLE 
+state.IDLE 0 0 0 
+state.RUN 0 1 1 
+state.STOP 1 0 1 

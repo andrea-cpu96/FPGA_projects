@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Nov 23 09:30:28 2025
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : deb_btn
+Top-level Entity Name : deb_btn
+Family : Cyclone IV E
+Total logic elements : 44
+    Total combinational functions : 43
+    Dedicated logic registers : 25
+Total registers : 25
+Total pins : 4
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

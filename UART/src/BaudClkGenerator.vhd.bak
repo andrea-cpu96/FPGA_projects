@@ -1,0 +1,14 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity BoudClkGenerator is
+port
+(
+	rst		:	in std_logic;
+	clk		:	in std_logic;
+	start		:	in std_logic;
+	baudClk	:	out std_logic;
+	Ready		:	out std_logic
+);
+end entity;
+

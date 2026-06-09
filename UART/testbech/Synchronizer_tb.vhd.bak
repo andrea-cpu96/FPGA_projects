@@ -1,0 +1,51 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity Synchronizer_tb is
+end entity;
+
+architecture rtl of Synchronizer_tb is
+	component Synchronizer is
+	generic
+	(
+		IDLE_STATE : std_logic := '1'
+	);
+	port
+	(
+		rst			:		in std_logic;
+		clk			:		in std_logic;
+		async			:		in std_logic;
+		sync			:		out std_logic
+	);
+	end component;
+	signal rst : std_logic;
+	signal clk : std_logic := '0';
+	signal async : std_logic;
+	signal sync : std_logic;
+begin
+	clk <= not(clk) after 10ns;
+	UUT:Synchronizer
+	generic map
+	(
+		IDLE_STATE => '1'
+	)
+	port map
+	(
+		rst => rst,
+		clk => clk,
+		async => async,
+		sync => sync	
+	);
+
+
+	Process1:process
+	begin
+		rst <= '0';
+		wait for 100ns;
+		rst <= '1';
+		wait for 100ns;
+		wait for 3ns;
+		async <= '0';
+		wait;
+	end process;
+end rtl;

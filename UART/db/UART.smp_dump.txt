@@ -1,0 +1,6 @@
+
+State Machine - |TopLevelModule|UART_rx:UART_rx_inst|FSMVariable
+Name FSMVariable.ASSERT_IRQ FSMVariable.COLLECT_RS232_DATA FSMVariable.IDLE 
+FSMVariable.IDLE 0 0 0 
+FSMVariable.COLLECT_RS232_DATA 0 1 1 
+FSMVariable.ASSERT_IRQ 1 0 1 

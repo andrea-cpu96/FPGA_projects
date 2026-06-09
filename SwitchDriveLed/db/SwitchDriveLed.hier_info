@@ -1,0 +1,5 @@
+|SwitchDriveLed
+sw1 => led1.DATAIN
+led1 << sw1.DB_MAX_OUTPUT_PORT_TYPE
+
+
