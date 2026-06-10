@@ -27,15 +27,15 @@ architecture behavioral of i2c_controller is
 	);
 	signal running : STD_LOGIC := '0';				-- Not idle; trigger recieved
 	signal pause_running : STD_LOGIC := '0';		-- Used to wait for next trigger
-	signal running_clock : STD_LOGIC;				-- Generator of 100KHz ish SCL
-	signal previous_running_clock : STD_LOGIC;		-- Used to find the edge
+	signal running_clock : STD_LOGIC := '0';		-- Generator of 100KHz ish SCL
+	signal previous_running_clock : STD_LOGIC := '0';	-- Used to find the edge
 	signal state : T_STATE := START1;				-- Current state
 	signal scl_local : STD_LOGIC := '1';			-- Local copies of output
 	signal sda_local : STD_LOGIC := '1';			-- Ditto
 
 begin
 	process (reset, clock)
-		variable i2c_clock_counter : UNSIGNED (6 downto 0);	-- Slows down the SCL from main clock
+		variable i2c_clock_counter : UNSIGNED (7 downto 0) := (others => '0');	-- Slows down the SCL from main clock
 	begin
 		if (reset = '1') then
 			i2c_clock_counter := (others => '0');
@@ -50,7 +50,11 @@ begin
 				-- If we are running, inc the counter and extract the MSB for 2nd process
 				i2c_clock_counter := i2c_clock_counter + 1;
 				previous_running_clock <= running_clock;
-				running_clock <= i2c_clock_counter (6);
+				if(i2c_clock_counter = 125) then
+					running_clock <= not running_clock;
+					i2c_clock_counter := (others => '0');
+
+				end if;
 			end if;
 			if (pause_running = '1') then
 				-- Handle the 2nd process wanting to wait for a trigger (eg. the next byte to write)
