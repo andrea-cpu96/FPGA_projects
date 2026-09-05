@@ -14,7 +14,7 @@ entity parallel_to_serial is
         shift : in  std_logic;
         load : in  std_logic;
         data_in : in  std_logic_vector(7 downto 0);
-        data_out : out std_logic;
+        data_out : out std_logic
     );
 end entity parallel_to_serial;
 
