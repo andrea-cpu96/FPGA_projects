@@ -1,0 +1,27 @@
+# Quartus generated databases and build output
+**/db/
+**/incremental_db/
+**/output_files/
+**/*.sof
+**/*.pof
+**/*.jdi
+**/*.done
+**/*.pin
+**/*.summary
+**/*.rpt
+
+# Quartus workspace files
+**/*.qws
+
+# ModelSim generated files
+**/work/
+**/*.wlf
+**/transcript
+**/wlf*
+**/*.mpf
+**/*.cr.mti
+**/*.log
+**/cr_ie_info.json
+
+# Editor and backup files
+**/*.bak
