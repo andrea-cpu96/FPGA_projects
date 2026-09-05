@@ -15,12 +15,17 @@
 
 # ModelSim generated files
 **/work/
+**/simulation/modelsim/
 **/*.wlf
 **/transcript
 **/wlf*
 **/*.mpf
 **/*.cr.mti
+**/*.mti
 **/*.log
+**/*.vho
+**/*.sft
+**/*.xrf
 **/cr_ie_info.json
 
 # Editor and backup files
