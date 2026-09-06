@@ -8,8 +8,12 @@ entity UART is
         G_BAUD     : natural := 115_200       -- bit/s
     );
     port (
-        clk   : in std_logic;
-        rst_n : in std_logic
+        clk              : in std_logic;
+        rst_n            : in std_logic;
+        w                : in std_logic;
+        data_to_transmit : in std_logic_vector(7 downto 0);
+        data_out         : out std_logic;
+        busy             : out std_logic
     );
 end entity UART;
 
@@ -22,8 +26,12 @@ begin
             G_BAUD     => G_BAUD
         )
         port map (
-            clk   => clk,
-            rst_n => rst_n
+            clk              => clk,
+            rst_n            => rst_n,
+            w                => w,
+            data_to_transmit => data_to_transmit,
+            data_out         => data_out,
+            busy             => busy
         );
 
 end architecture rtl;
