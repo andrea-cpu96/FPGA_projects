@@ -1,4 +1,3 @@
--- Non-synthesizable testbench skeleton
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -19,15 +18,15 @@ begin
     dut : entity work.parallel_to_serial
         port map (clk => clk, rst_n => rst_n, shift => shift, load => load, data_in => data_in, data_out => data_out);
 
-    clk <= not clk after C_CLK_PERIOD / 2;   -- free-running clock
+    clk <= not clk after C_CLK_PERIOD / 2;  -- free-running clock
 
     stim : process
     begin
         wait for 2 * C_CLK_PERIOD;
-        rst_n <= '1';                        -- release reset
+        rst_n <= '1';                       -- release reset
         data_in <= x"A5";
 
-        wait until rising_edge(clk);       -- DUT captures data_in on rising edge of clk
+        wait until rising_edge(clk);        -- DUT captures data_in on rising edge of clk
         load <= '1';
 
         wait until rising_edge(clk);
