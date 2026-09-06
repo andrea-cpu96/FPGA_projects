@@ -8,6 +8,12 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity baudrate_gen is
+    generic (
+        G_PHASE_OFFSET : natural := 0   -- counter preload while disabled: the
+                                        -- first tick lands `divider - G_PHASE_OFFSET`
+                                        -- edges after enable rises. 0 = legacy
+                                        -- (TX); divider/2 = mid-bit sampling (RX)
+    );
     port (
         clk : in std_logic;
         rst_n : in std_logic;
@@ -29,7 +35,7 @@ begin
             if rst_n = '0' then
                 counter <= 0;
             elsif enable = '0' then
-                counter <= 0;
+                counter <= G_PHASE_OFFSET;  -- pre-arm the tick phase while idle
             elsif counter = divider - 1 then
                 counter <= 0;
             else
