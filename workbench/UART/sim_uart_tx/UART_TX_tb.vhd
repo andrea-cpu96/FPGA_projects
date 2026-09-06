@@ -12,10 +12,10 @@ architecture sim of tb_UART_TX is
     signal w : std_logic := '0';
     signal data_to_transmit : std_logic_vector(7 downto 0) := (others => '0');
     signal data_out : std_logic;
-    signal busy : std_logic;
+    signal tx_busy : std_logic;
 begin
     dut : entity work.UART_TX
-        port map (clk => clk, rst_n => rst_n, w => w, data_to_transmit => data_to_transmit, data_out => data_out, busy => busy);
+        port map (clk => clk, rst_n => rst_n, w => w, data_to_transmit => data_to_transmit, data_out => data_out, tx_busy => tx_busy);
 
     clk <= not clk after CLK_PERIOD / 2;    -- free-running clock
 

@@ -1,6 +1,6 @@
 -- UART_TX.vhd
 -- UART transmitter (top of the TX hierarchy). Instantiates baudrate_gen (BRG)
--- and parallel_to_serial (P2S); owns start/stop framing and busy/ready status.
+-- and parallel_to_serial (P2S); owns start/stop framing and tx_busy status.
 -- Placeholder file -- implementation pending (see ARCHITECTURE.md, Section 4).
 
 library ieee;
@@ -18,7 +18,7 @@ entity UART_TX is
         w : in std_logic;
         data_to_transmit  : in std_logic_vector(7 downto 0);
         data_out : out std_logic;   
-        busy  : out std_logic
+        tx_busy  : out std_logic
     );
 end entity UART_TX;
 
@@ -102,24 +102,24 @@ begin
     load <= '1' when state = IDLE and w = '1' else '0';
     shift <= '1' when state = DATA_BITS and baud_tick = '1' else '0';
 
-    -- Combinational output logic for data_out and busy signals.
+    -- Combinational output logic for data_out and tx_busy signals.
     process(state, data_out_b)
     begin
         data_out <= '1';
-        busy <= '0';
+        tx_busy <= '0';
 
         case state is
             when IDLE =>
                 null;
             when START_BIT =>
                 data_out <= '0';
-                busy <= '1';
+                tx_busy <= '1';
             when DATA_BITS =>
                 data_out <= data_out_b;
-                busy <= '1';
+                tx_busy <= '1';
             when STOP_BIT =>
                 data_out <= '1';
-                busy <= '1';
+                tx_busy <= '1';
         end case;
     end process;
 

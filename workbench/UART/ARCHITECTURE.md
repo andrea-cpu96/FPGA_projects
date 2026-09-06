@@ -75,7 +75,7 @@ Wraps TX and RX and owns the external interface.
 | `rx` | in | 1 | Serial receive line from the external UART device | 💡 expected |
 | `data_in[7:0]` | in | 8 | Parallel data byte to transmit | 💡 proposed — could also be internal (test pattern / FIFO) |
 | `data_valid` | in | 1 | Pulse telling TX to load `data_in` and start | 💡 proposed |
-| `busy` / `ready` | out | 1 | TX status (from BRSG) | 💡 proposed |
+| `tx_busy` / `tx_ready` | out | 1 | TX status (from BRSG) | 💡 proposed |
 | `data_out[7:0]` | out | 8 | Received byte | 🚧 with RX |
 
 > NOTE: `UART.vhd` currently contains only the empty `clk`/`rst` stub — the interface above will be filled in as the blocks get implemented.
@@ -102,7 +102,7 @@ data_valid ────►│ │  P2S  ├────────────�
                 │     └───────────┤     BRG      │◄── clk                │
                 │                 └──────────────┘                       │
                 │ ┌───────┐                                              │
-                │ │ BRSG  ├── busy / ready ─────────────────────────────►│──► to top level
+                │ │ BRSG  ├── tx_busy / tx_ready ────────────────────────►│──► to top level
                 │ └───▲───┘                                              │
                 │     └── TX state (shift register / frame counters)       │
                 └─────────────────────────────────────────────────────────┘
@@ -153,13 +153,13 @@ Implementation notes: the counter runs `0 … divider-1`, so the tick period is 
 
 ### 4.5 BRSG — Busy/Ready Signal Generator
 
-**Purpose:** status/handshake block. `ready = 1` (equivalently `busy = 0`) when TX can accept a new byte; `busy = 1` for the entire frame (start bit through stop bit). Prevents the upstream logic from overwriting the shift register mid-frame.
+**Purpose:** status/handshake block. `tx_ready = 1` (equivalently `tx_busy = 0`) when TX can accept a new byte; `tx_busy = 1` for the entire frame (start bit through stop bit). Prevents the upstream logic from overwriting the shift register mid-frame.
 
 | Signal | Dir | Width | Description |
 |---|---|---|---|
 | TX state inputs | in | — | Frame/bit counters or `load`/`done` events — exact form TBD |
-| `busy` | out | 1 | 1 while a frame is being transmitted |
-| `ready` | out | 1 | 1 when idle and able to accept new data (typically `NOT busy`) |
+| `tx_busy` | out | 1 | 1 while a frame is being transmitted |
+| `tx_ready` | out | 1 | 1 when idle and able to accept new data (typically `NOT tx_busy`) |
 
 ### 4.6 TX frame format (8N1)
 
@@ -174,12 +174,12 @@ Parity and extra stop bits: not planned for v1 — TBD.
 
 ### 4.7 Transmit sequence
 
-1. **Idle:** `tx = 1`, `ready = 1`.
-2. Upstream asserts `data_valid` with `data[7:0]` → P2S loads the byte; BRSG drops `ready` (asserts `busy`).
+1. **Idle:** `tx = 1`, `tx_ready = 1`.
+2. Upstream asserts `data_valid` with `data[7:0]` → P2S loads the byte; BRSG drops `tx_ready` (asserts `tx_busy`).
 3. SSBG drives the **start bit** (0) for one baud period.
 4. P2S shifts out **D0…D7 (LSB first)**, one bit per baud tick.
 5. SSBG drives the **stop bit** (1) for one baud period.
-6. BRSG re-asserts `ready`; back to step 1.
+6. BRSG re-asserts `tx_ready`; back to step 1.
 
 ---
 

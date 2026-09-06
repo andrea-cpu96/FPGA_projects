@@ -13,7 +13,7 @@ entity UART is
         w                : in std_logic;
         data_to_transmit : in std_logic_vector(7 downto 0);
         data_out         : out std_logic;
-        busy             : out std_logic
+        tx_busy          : out std_logic
     );
 end entity UART;
 
@@ -31,7 +31,7 @@ begin
             w                => w,
             data_to_transmit => data_to_transmit,
             data_out         => data_out,
-            busy             => busy
+            tx_busy          => tx_busy
         );
 
 end architecture rtl;
