@@ -31,6 +31,7 @@ architecture sim of baudrate_gen_tb is
     -- DUT interface
     signal clk       : std_logic := '0';
     signal rst_n     : std_logic := '0';
+    signal enable    : std_logic := '1';
     signal divider   : integer   := 4;
     signal baud_tick : std_logic;
 
@@ -47,6 +48,7 @@ begin
         port map (
             clk       => clk,
             rst_n     => rst_n,
+            enable    => enable,
             divider   => divider,
             baud_tick => baud_tick
         );

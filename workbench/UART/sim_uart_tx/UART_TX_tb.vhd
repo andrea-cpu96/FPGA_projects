@@ -25,7 +25,8 @@ begin
         rst_n <= '1';                       -- release reset
         data_to_transmit <= x"A5";
         
-        wait until rising_edge(clk);       
+        wait until rising_edge(clk);        -- DUT captures data_to_transmit on rising edge of clk
+        wait for 5 us;     
         w <= '1';                            -- request transmission
 
         wait until rising_edge(clk);

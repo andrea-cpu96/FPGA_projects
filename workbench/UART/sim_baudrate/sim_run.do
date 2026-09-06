@@ -3,7 +3,11 @@
 # (For the GUI use sim_gui.do instead - it also populates the Wave window.)
 transcript file sim_transcript.log
 onerror {quit -f}
-if {![file exists work/_info]} { vlib work }
+
+# Always compile into a clean local library.
+if {[file exists work/_info]} { vdel -lib work -all }
+vlib work
+
 vcom -quiet ../baudrate_gen.vhd
 vcom -quiet baudrate_gen_tb.vhd
 vsim -voptargs=+acc work.baudrate_gen_tb

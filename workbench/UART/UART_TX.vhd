@@ -29,6 +29,7 @@ architecture rtl of UART_TX is
     signal load       : std_logic;
     signal shift      : std_logic;
     signal baud_tick  : std_logic;
+    signal baud_enable : std_logic;
     signal count      : natural range 0 to 7 := 0;
     signal data_out_b : std_logic := '1';
 
@@ -41,6 +42,7 @@ begin
         port map (
             clk       => clk,
             rst_n     => rst_n,
+            enable    => baud_enable,
             divider   => C_DIVIDER,
             baud_tick => baud_tick
         );
@@ -96,6 +98,7 @@ begin
     end process;
 
     -- Combinational control signals derived from the current FSM state and inputs.
+    baud_enable <= '1' when state /= IDLE else '0';
     load <= '1' when state = IDLE and w = '1' else '0';
     shift <= '1' when state = DATA_BITS and baud_tick = '1' else '0';
 

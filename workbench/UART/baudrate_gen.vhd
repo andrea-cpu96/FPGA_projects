@@ -11,6 +11,7 @@ entity baudrate_gen is
     port (
         clk : in std_logic;
         rst_n : in std_logic;
+        enable : in std_logic;
         divider  : in  integer;
         baud_tick : out std_logic
     );
@@ -29,6 +30,9 @@ begin
 			if rst_n = '0' then
             baud <= '0';
             counter <= 0;
+                elsif enable = '0' then
+                baud <= '0';
+                counter <= 0;
 			elsif counter = divider - 1 then
 				baud <= '1';
 				counter <= 0;
