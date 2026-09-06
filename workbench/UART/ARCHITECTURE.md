@@ -210,7 +210,7 @@ Mirror image of TX: watches `rx` for the falling edge (start bit), samples the m
 | 4 | Frame format | 8N1 fixed, or configurable data bits / parity / stop bits | 🚧 |
 | 5 | Reset style | Active-low `rst_n` chosen for BRG/TX; async vs. sync semantics still to settle | 🚧 |
 | 6 | Data source/sink | External pins, internal test pattern, FIFO, loopback test | 🚧 |
-| 7 | RX sampling strategy | Straight baud tick vs. 16× oversampling | 🚧 |
+| 7 | RX sampling strategy | ✅ 1× baud tick with half-bit phase offset (**mid-bit sampling**): BRG `G_PHASE_OFFSET = divider/2` + tick phase **re-armed on the detected start edge** every frame (RX `START_BIT` state consumes the mid-start tick). Idle-gap alignment no longer required. 16× oversampling only if real async links (glitch filtering, separate clocks) become a requirement | ✅ |
 | 8 | HDL for all modules | Project currently registers `UART.vhd` (VHDL) — confirm | 🚧 |
 | 9 | Parameter propagation | ✅ `G_CLK_FREQ` / `G_BAUD` generics declared on top entity `UART`, passed down via `generic map`; derived values (BRG `divider`) computed in `UART_TX` from the generics, not duplicated per level | 🚧 |
 
@@ -233,7 +233,7 @@ Two ways to run the TB:
 - **GUI (normal flow):** open `sim_baudrate.mpf` → `Compile → Compile All` → `Simulate → Start Simulation…` → `work.baudrate_gen_tb` (Optimization tab: uncheck *Enable optimization*) → in the **Objects** window select `clk`, `rst_n`, `divider`, `baud_tick` (plus `dut/counter`) → right-click → **Add to Wave** → `run 500 ns`, then `run -all`; drag-select a region on the wave to zoom. **Add the signals *before* running** — ModelSim only records what is already in the Wave window.
 - **Command line:** `vsim -c -do sim_run.do` (compiles the DUT from `../baudrate_gen.vhd` + the local TB, runs, prints the PASS/FAIL verdict).
 
-**Status:** ✅ **PASSED** — executed 2026-09-04 with ModelSim ASE (440,320 ns simulated, 1 s wall time): `BRG TEST PASSED — 42 ticks checked, 0 errors, 0 warnings`. Note: the VC++ 2013 x86 runtime (`msvcr120.dll` / `msvcp120.dll`) had to be installed first — ModelSim ASE does not launch without it. **Re-verified after moving everything into `sim_baudrate/`: PASS — 42 ticks, 0 errors.** Re-verified 2026-09-06 after switching `baud_tick` to a combinational terminal-count pulse (see §4.3): **PASS — 43 ticks checked, 0 errors, 0 warnings.**
+**Status:** ✅ **PASSED** — executed 2026-09-04 with ModelSim ASE (440,320 ns simulated, 1 s wall time): `BRG TEST PASSED — 42 ticks checked, 0 errors, 0 warnings`. Note: the VC++ 2013 x86 runtime (`msvcr120.dll` / `msvcp120.dll`) had to be installed first — ModelSim ASE does not launch without it. **Re-verified after moving everything into `sim_baudrate/`: PASS — 42 ticks, 0 errors.** Re-verified 2026-09-06 after switching `baud_tick` to a combinational terminal-count pulse (see §4.3): **PASS — 43 ticks checked, 0 errors, 0 warnings.** Re-verified 2026-09-06 after adding `G_PHASE_OFFSET` (default 0 → TX behavior unchanged): **PASS — 43 ticks, 0 errors.**
 
 Manual desk-check of the DUT trace (`divider = 4`): sampled ticks at edges 4, 8, 12 … → period = 4 = `divider`, pulse = 1 cycle ✓ — consistent with the TB expectations.
 
@@ -252,6 +252,7 @@ Manual desk-check of the DUT trace (`divider = 4`): sampled ticks at edges 4, 8,
 | 0.7 | 2026-09-04 | Installed VC++ 2013 x86 runtime (missing `msvcr120.dll`/`msvcp120.dll`); executed `baudrate_gen_tb` in ModelSim: **PASS — 42 ticks checked, 0 errors** |
 | 0.8 | 2026-09-04 | Organized simulation into `sim_baudrate/` (TB, `sim_run.do`, `work`, `.mpf`); cleaned root artifacts; re-ran from new location: **PASS — 42 ticks, 0 errors** |
 | 0.9 | 2026-09-06 | BRG `baud_tick` switched from registered to combinational terminal-count pulse (gated by `enable`): removes the one-cycle latency that stretched the TX start bit to `divider+1` clocks; §4.3/§7 updated; BRG TB re-verified (**43 ticks, 0 errors**) + new frame-level TX check: **4 frames, 0 errors** (incl. back-to-back) |
+| 1.0 | 2026-09-06 | RX tick phase re-sync: BRG gains `G_PHASE_OFFSET` generic (counter preload while disabled, default 0 → TX unchanged); `UART_RX` re-arms the tick phase on the **detected start edge** (enable sticky through the frame, new `START_BIT` state) and samples **mid-bit** — idle-gap alignment no longer required (decision #7 closed); new self-checking `sim_uart_rx/UART_RX_tb.vhd`: frame `0xA5` decoded with a deliberately misaligned gap, **0 errors**; BRG TB re-verified (**43 ticks, 0 errors**), TX TB clean |
 
 
 
