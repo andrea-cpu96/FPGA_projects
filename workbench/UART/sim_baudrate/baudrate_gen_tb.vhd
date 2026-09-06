@@ -3,7 +3,7 @@
 --
 -- Verifies, by sampling on rising edges (same convention as the DUT):
 --   1. baud_tick period  == divider clock cycles (tick-to-tick)
---   2. first tick after reset release arrives exactly divider+1 edges
+--   2. first tick after reset release arrives exactly divider edges
 --      after the last reset edge (counter re-alignment)
 --   3. pulse width == 1 clock cycle (for divider >= 2)
 --   4. all of the above re-verified after a mid-run reset,
@@ -162,10 +162,10 @@ begin
                 if baud_tick = '1' then
                     ticks_seen <= ticks_seen + 1;
                     if first_tick then
-                        if edge_cnt /= divider + 1 then
+                        if edge_cnt /= divider then
                             report "ERROR: first tick after reset at edge " &
                                    integer'image(edge_cnt) & ", expected " &
-                                   integer'image(divider + 1) severity error;
+                                   integer'image(divider) severity error;
                             errors <= errors + 1;
                         end if;
                         first_tick := false;

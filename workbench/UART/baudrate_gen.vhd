@@ -19,31 +19,29 @@ end entity baudrate_gen;
 
 architecture rtl of baudrate_gen is
 
-    signal baud : std_logic := '0';
     signal counter : integer := 0;
 
 begin
 
     process(clk)
     begin
-		if rising_edge(clk) then
-			if rst_n = '0' then
-            baud <= '0';
-            counter <= 0;
-                elsif enable = '0' then
-                baud <= '0';
+        if rising_edge(clk) then
+            if rst_n = '0' then
                 counter <= 0;
-			elsif counter = divider - 1 then
-				baud <= '1';
-				counter <= 0;
-			else
-				baud <= '0';
-				counter <= counter + 1;
-			end if;
-		end if;
-        
+            elsif enable = '0' then
+                counter <= 0;
+            elsif counter = divider - 1 then
+                counter <= 0;
+            else
+                counter <= counter + 1;
+            end if;
+        end if;
     end process;
 
-    baud_tick <= baud;
+    -- Combinational terminal-count pulse: a clocked consumer samples the
+    -- first tick exactly `divider` edges after enable rises. A registered
+    -- tick would add one extra cycle of latency and stretch the UART start
+    -- bit to divider+1 clock cycles (framing error).
+    baud_tick <= '1' when enable = '1' and counter = divider - 1 else '0';
 
 end architecture rtl;
