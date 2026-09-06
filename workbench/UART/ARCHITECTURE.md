@@ -136,7 +136,7 @@ Implementation hint: 8-bit shift register + 3-bit bit counter; idle value of `bi
 | `divider` | in | integer (unconstrained) | Tick period in clock cycles; baud = `CLK_FREQ / divider`. TODO: constrain (e.g. `natural range 0 to 65535`) |
 | `baud_tick` | out | 1 | One-clock-wide pulse every `divider` cycles |
 
-Implementation notes: the counter runs `0 … divider-1`, so the tick period is exactly `divider` clock cycles → use `divider = CLK_FREQ / BAUD` (e.g. 50 MHz / 115200 = 433 → 115.47 kBd, +0.24 % error, well within UART tolerance). Free-running (no frame gating). Reset is written async-style but the sensitivity list is `clk` only, so it currently behaves as a *synchronous* reset — settle this in decision #5.
+Implementation notes: the counter runs `0 … divider-1`, so the tick period is exactly `divider` clock cycles → use `divider = CLK_FREQ / BAUD` (e.g. 50 MHz / 115200 = 433 → 115.47 kBd, +0.24 % error, well within UART tolerance). `baud_tick` is a **combinational** terminal-count pulse gated by `enable`: a clocked consumer samples the first tick exactly `divider` edges after `enable` rises (a registered tick would add one cycle of latency and stretch the UART start bit to `divider+1` cycles — framing error). Free-running (no frame gating). Reset is written async-style but the sensitivity list is `clk` only, so it currently behaves as a *synchronous* reset — settle this in decision #5.
 
 ---
 
@@ -223,19 +223,19 @@ Mirror image of TX: watches `rx` for the falling edge (start bit), samples the m
 Self-checking TB; monitors on rising edges (same sampling convention as the DUT) and verifies:
 
 - **Tick period** == `divider` clock cycles (tick-to-tick)
-- **Reset alignment** — first tick arrives exactly `divider + 1` edges after the last reset edge
+- **Reset alignment** — first tick arrives exactly `divider` edges after the last reset edge (combinational terminal-count pulse, no extra cycle of latency)
 - **Pulse width** == 1 clock cycle (for `divider >= 2`)
 - **Re-alignment after a mid-run reset**, repeated for `divider = 4, 10, 433` (115200 Bd @ 50 MHz) `and 5208` (9600 Bd)
 - `divider = 1` / `divider = 0` intentionally **not** tested (continuous tick / hang — see §6, decision 3)
 
 Two ways to run the TB:
 
-- **GUI (normal flow):** open `sim_baudrate.mpf` → `Compile → Compile All` → `Simulate → Start Simulation…` → `work.baudrate_gen_tb` (Optimization tab: uncheck *Enable optimization*) → in the **Objects** window select `clk`, `rst_n`, `divider`, `baud_tick` (plus `dut/counter`, `dut/baud`) → right-click → **Add to Wave** → `run 500 ns`, then `run -all`; drag-select a region on the wave to zoom. **Add the signals *before* running** — ModelSim only records what is already in the Wave window.
+- **GUI (normal flow):** open `sim_baudrate.mpf` → `Compile → Compile All` → `Simulate → Start Simulation…` → `work.baudrate_gen_tb` (Optimization tab: uncheck *Enable optimization*) → in the **Objects** window select `clk`, `rst_n`, `divider`, `baud_tick` (plus `dut/counter`) → right-click → **Add to Wave** → `run 500 ns`, then `run -all`; drag-select a region on the wave to zoom. **Add the signals *before* running** — ModelSim only records what is already in the Wave window.
 - **Command line:** `vsim -c -do sim_run.do` (compiles the DUT from `../baudrate_gen.vhd` + the local TB, runs, prints the PASS/FAIL verdict).
 
-**Status:** ✅ **PASSED** — executed 2026-09-04 with ModelSim ASE (440,320 ns simulated, 1 s wall time): `BRG TEST PASSED — 42 ticks checked, 0 errors, 0 warnings`. Note: the VC++ 2013 x86 runtime (`msvcr120.dll` / `msvcp120.dll`) had to be installed first — ModelSim ASE does not launch without it. **Re-verified after moving everything into `sim_baudrate/`: PASS — 42 ticks, 0 errors.**
+**Status:** ✅ **PASSED** — executed 2026-09-04 with ModelSim ASE (440,320 ns simulated, 1 s wall time): `BRG TEST PASSED — 42 ticks checked, 0 errors, 0 warnings`. Note: the VC++ 2013 x86 runtime (`msvcr120.dll` / `msvcp120.dll`) had to be installed first — ModelSim ASE does not launch without it. **Re-verified after moving everything into `sim_baudrate/`: PASS — 42 ticks, 0 errors.** Re-verified 2026-09-06 after switching `baud_tick` to a combinational terminal-count pulse (see §4.3): **PASS — 43 ticks checked, 0 errors, 0 warnings.**
 
-Manual desk-check of the DUT trace (`divider = 4`): sampled ticks at edges 5, 9, 13 … → period = 4 = `divider`, pulse = 1 cycle ✓ — consistent with the TB expectations.
+Manual desk-check of the DUT trace (`divider = 4`): sampled ticks at edges 4, 8, 12 … → period = 4 = `divider`, pulse = 1 cycle ✓ — consistent with the TB expectations.
 
 ---
 
@@ -251,6 +251,7 @@ Manual desk-check of the DUT trace (`divider = 4`): sampled ticks at edges 5, 9,
 | 0.6 | 2026-09-04 | Added self-checking testbench `baudrate_gen_tb.vhd` (+ `sim_run.do`); added §7 Verification; local ModelSim run blocked by missing VC++ 2013 x86 runtime |
 | 0.7 | 2026-09-04 | Installed VC++ 2013 x86 runtime (missing `msvcr120.dll`/`msvcp120.dll`); executed `baudrate_gen_tb` in ModelSim: **PASS — 42 ticks checked, 0 errors** |
 | 0.8 | 2026-09-04 | Organized simulation into `sim_baudrate/` (TB, `sim_run.do`, `work`, `.mpf`); cleaned root artifacts; re-ran from new location: **PASS — 42 ticks, 0 errors** |
+| 0.9 | 2026-09-06 | BRG `baud_tick` switched from registered to combinational terminal-count pulse (gated by `enable`): removes the one-cycle latency that stretched the TX start bit to `divider+1` clocks; §4.3/§7 updated; BRG TB re-verified (**43 ticks, 0 errors**) + new frame-level TX check: **4 frames, 0 errors** (incl. back-to-back) |
 
 
 
