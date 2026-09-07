@@ -27,6 +27,10 @@ architecture rtl of UART_RX is
                                             -- by the S2P register on clk edges
     signal baud_enable : std_logic;
     signal rx_valid_r : std_logic;          -- registered rx_valid strobe
+    signal rx_busy_r : std_logic := '0';    -- registered rx_busy status
+    signal data_in_meta : std_logic := '1'; -- 1st sync stage (metastable-prone)
+    signal data_in_sync : std_logic := '1'; -- synchronized RXD (the only
+                                            -- source used downstream)
     signal count : natural range 0 to 7 := 0;
 
     type state_t is (IDLE, WAIT_START_BIT, START_BIT, DATA_BITS, STOP_BIT);
@@ -52,9 +56,27 @@ begin
             clk => clk,
             rst_n => rst_n,
             shift => shift,
-            data_in => data_in,
+            data_in => data_in_sync,        -- synchronized line, not the raw pin
             data_out => data_rx
         );
+
+    -- 2-FF input synchronizer: on a real board RXD is an asynchronous pin
+    -- (driven by the remote transmitter's clock domain). The first stage may
+    -- go metastable; the second stage provides a clean sample for the FSM
+    -- start detection and the S2P register. Never read the raw data_in pin
+    -- anywhere downstream of this process.
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            if rst_n = '0' then
+                data_in_meta <= '1';        -- serial line idles high
+                data_in_sync <= '1';
+            else
+                data_in_meta <= data_in;
+                data_in_sync <= data_in_meta;
+            end if;
+        end if;
+    end process;
 
     -- Sequential logic
 
@@ -65,8 +87,16 @@ begin
                 state <= IDLE;
                 count <= 0;
                 rx_valid_r <= '0';
+                rx_busy_r <= '0';
             else
                 state <= nstate;
+
+                -- Registered status output (module outputs are FF-driven)
+                if state = IDLE then
+                    rx_busy_r <= '0';
+                else
+                    rx_busy_r <= '1';
+                end if;
 
                 -- rx_valid is a registered strobe. The combinatorial decode
                 -- (state = STOP_BIT and baud_tick) glitches for one delta at
@@ -94,19 +124,19 @@ begin
 
     -- Combinatorial logic
 
-    rx_busy <= '1' when state /= IDLE else '0';
+    rx_busy <= rx_busy_r;                   -- glitch-free status out
     rx_valid <= rx_valid_r;                 -- glitch-free strobe out
     -- Tick phase re-armed on every frame: enable rises when the start bit is
     -- detected (not when r arrives), so the tick grid resynchronizes on the
     -- received start edge regardless of the idle-gap length. It stays high
     -- for the whole frame (data/stop bits can be '1' without dropping it).
-    baud_enable <= '1' when (state = WAIT_START_BIT and data_in = '0') or
+    baud_enable <= '1' when (state = WAIT_START_BIT and data_in_sync = '0') or
                              state = START_BIT or
                              state = DATA_BITS  or
                              state = STOP_BIT
                  else '0';
 
-    process(state, r, data_in, baud_tick, count)                
+    process(state, r, data_in_sync, baud_tick, count)                
 	 begin
         nstate <= state;
         shift <= '0';
@@ -116,7 +146,7 @@ begin
                     nstate <= WAIT_START_BIT; 
                 end if;
             when WAIT_START_BIT =>
-                if data_in = '0' then
+                if data_in_sync = '0' then
                     nstate <= START_BIT;
                 end if;
             when START_BIT =>

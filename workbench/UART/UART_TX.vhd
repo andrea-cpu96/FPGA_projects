@@ -32,6 +32,8 @@ architecture rtl of UART_TX is
     signal baud_enable : std_logic;
     signal count      : natural range 0 to 7 := 0;
     signal data_out_b : std_logic := '1';
+    signal data_out_r : std_logic := '1';   -- registered serial output (TXD)
+    signal tx_busy_r  : std_logic := '0';   -- registered status output
 
     type state_t is (IDLE, START_BIT, DATA_BITS, STOP_BIT);
     signal state : state_t := IDLE;
@@ -64,6 +66,8 @@ begin
             if rst_n = '0' then
                 state <= IDLE;
                 count <= 0;
+                data_out_r <= '1';          -- serial line idles high
+                tx_busy_r  <= '0';
             else
                 case state is
                     when IDLE =>
@@ -93,6 +97,25 @@ begin
                             state <= IDLE;
                         end if;
                 end case;
+
+                -- Registered output mux: samples the framing decode of the
+                -- CURRENT state, so the whole frame is uniformly delayed by
+                -- one clock on the wire. Bit cells keep their width and the
+                -- receiver re-syncs on the start edge, so the latency is
+                -- harmless for any UART.
+                case state is
+                    when IDLE      => data_out_r <= '1';
+                    when START_BIT => data_out_r <= '0';
+                    when DATA_BITS => data_out_r <= data_out_b;
+                    when STOP_BIT  => data_out_r <= '1';
+                end case;
+
+                -- Registered status output (module outputs are FF-driven)
+                if state = IDLE then
+                    tx_busy_r <= '0';
+                else
+                    tx_busy_r <= '1';
+                end if;
             end if;
         end if;
     end process;
@@ -102,25 +125,9 @@ begin
     load <= '1' when state = IDLE and w = '1' else '0';
     shift <= '1' when state = DATA_BITS and baud_tick = '1' else '0';
 
-    -- Combinational output logic for data_out and tx_busy signals.
-    process(state, data_out_b)
-    begin
-        data_out <= '1';
-        tx_busy <= '0';
-
-        case state is
-            when IDLE =>
-                null;
-            when START_BIT =>
-                data_out <= '0';
-                tx_busy <= '1';
-            when DATA_BITS =>
-                data_out <= data_out_b;
-                tx_busy <= '1';
-            when STOP_BIT =>
-                data_out <= '1';
-                tx_busy <= '1';
-        end case;
-    end process;
+    -- Continuous output drivers: exactly one driver per port, both coming
+    -- from flip-flops (glitch-free at the module/pin boundary).
+    data_out <= data_out_r;
+    tx_busy  <= tx_busy_r;
 
 end architecture rtl;

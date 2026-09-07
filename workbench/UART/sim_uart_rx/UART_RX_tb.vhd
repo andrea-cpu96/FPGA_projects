@@ -12,7 +12,11 @@ end entity;
 
 architecture sim of tb_UART_RX is
     constant CLK_PERIOD : time := 20 ns;    -- 50 MHz reference clock
-    constant BIT_PERIOD : time := 80 ns;    -- 4 clock cycles (divider = 4)
+    constant BIT_PERIOD : time := 200 ns;   -- 10 clock cycles (divider = 10):
+                                            -- divider/2 must exceed the 2-3
+                                            -- clock latency of the RX input
+                                            -- synchronizer (real dividers,
+                                            -- e.g. 434, have ample margin)
     constant DATA_BYTE  : std_logic_vector(7 downto 0) := x"A5";
     signal clk : std_logic := '0';
     signal rst_n : std_logic := '0';
@@ -37,7 +41,7 @@ architecture sim of tb_UART_RX is
     end function;
 begin
     dut : entity work.UART_RX
-        generic map (G_CLK_FREQ => 100, G_BAUD => 25)   -- divider = 4 = BIT_PERIOD / CLK_PERIOD
+        generic map (G_CLK_FREQ => 100, G_BAUD => 10)   -- divider = 10 = BIT_PERIOD / CLK_PERIOD
         port map (clk => clk, rst_n => rst_n, r => r, data_in => data_in,
                   rx_valid => rx_valid, data_rx => data_rx, rx_busy => rx_busy);
 
@@ -67,10 +71,9 @@ begin
         r <= '0';                           -- RX now in WAIT_START_BIT
 
         -- 5 idle cycles before the start bit: the RX re-arms its tick phase
-        -- on the detected start edge (mid-bit sampling), so the gap length
-        -- does not matter. 5 cycles is deliberately NOT aligned with the
-        -- r-derived grid (divider = 4): the old r-armed phase would decode
-        -- this frame wrongly, proving the re-sync works.
+        -- on the detected (synchronized) start edge, so any gap length is
+        -- legal -- the 2-3 clock delay of the input synchronizer is absorbed
+        -- by the re-sync itself.
         wait until rising_edge(clk);
         wait until rising_edge(clk);
         wait until rising_edge(clk);
